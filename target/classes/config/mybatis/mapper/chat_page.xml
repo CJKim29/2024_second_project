@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chat_page">
+
+	<select id="chat_page_list" resultType="chat_page">
+		select * from member
+	</select>
+	
+	<select id="chat_list" resultType="chatlist">
+		select * from chatList
+	</select>
+	
+	<select id="chat_page_onelist" parameterType="int" resultType="chat_page">
+		select * from member where mem_idx=#{ mem_idx }
+	</select>
+	
+	<insert id="chat_insert" parameterType="chat_page">
+		insert into chatList values(
+							 seq_chatList_idx.nextVal, 
+							 #{ chat_name },
+							 sysdate,
+							 #{ mem_idx },
+							 #{ mem_name },
+							 #{ mem_idx },
+							 #{ mate_name },
+							 seq_chatList_idx.currVal
+							 )	
+	</insert>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="regitem">
+
+	<!-- select : 반드시 resultType(포장타입) or resultMap 속성 정의 -->
+	<select id="reg_item_list"  resultType="regitem">
+		select * from reg_item
+	</select>
+	
+	<select id="reg_item_idx_list" parameterType="int" resultType="regitem">
+		select * from reg_item where reg_idx=#{ reg_idx }
+	</select>
+    
+    <!-- 경매시 화면 새로고침 -->
+    <select id="getLatestPrice" resultType="int">
+    	select max(auction_price) from reg_item 
+    	<!-- where reg_idx = #{ reg_idx } -->
+	</select>
+	
+	<select id="selectOneRegItem" parameterType="int" resultType="vo.RegItemVo">
+        select * from reg_item where reg_idx = #{reg_idx}
+    </select>
+	
+	<!-- 직접입력 방식 bidding_point 업데이트 -->
+    <update id="bidding_point" parameterType="int">
+        update reg_item 
+        set auction_price = auction_price + #{ bidding_point }
+        <!-- where reg_idx = #{ reg_idx } -->
+    </update>
+    
+    <!-- 버튼 방식 bidding_point 업데이트 -->
+    <update id="bidding_point_button">
+        update reg_item 
+        set auction_price = auction_price + #{ bidding_point_button }
+        <!-- where mem_id = #{ mem_id } -->
+    </update>
+</mapper>

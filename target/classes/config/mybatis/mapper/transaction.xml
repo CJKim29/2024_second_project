@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="transaction">
+
+	<!-- select : 반드시 resultType(포장타입) or resultMap 속성 정의 -->
+	<select id="transaction_list"  resultType="transaction">
+		select * from transaction
+	</select>
+
+	 <!-- inc_point 업데이트 -->
+    <update id="updateInc_point" parameterType="map">
+        update member 
+        set mem_point = mem_point + #{ charge_point }
+        where mem_idx = #{ mem_idx }
+    </update>
+    
+    <!-- 거래 후 inc_point 업데이트 -->
+    <update id="transaction_point" parameterType="map">
+        update member 
+        set mem_point = mem_point - #{ transaction_point }
+        where mem_idx = #{ mem_idx }
+    </update>
+    
+    
+</mapper>
