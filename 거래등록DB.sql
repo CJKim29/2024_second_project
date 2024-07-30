@@ -41,7 +41,7 @@
 	
 	insert into reg_item (reg_idx, filename, reg_name, reg_price, auction_price, reg_date, category, grade, intrinsic, durability, req_str, req_dex, req_lev,
                       option1, option2, option3, option4, option5, option6)
-						values (seq_item_search_idx.nextVal, '천상의 의복.jpg', '천상의 의복'||chr(10)||'라이트 플레이트', 10000, 0, sysdate, '갑옷', '노멀', 
+						values (seq_reg_item_idx.nextVal, '천상의 의복.jpg', '천상의 의복'||chr(10)||'라이트 플레이트', 10000, 0, sysdate, '갑옷', '노멀', 
         				'방어력:216', '내구도:60', '필요 힘:41', '', '요구 레벨:29', '언데드에게 주는 피해 +50%', '언데드에 대한 명중률 +100', '방어력 +100% 증가',
         				'마력 +15', '마나 재생 25%', '모든 저항 +10')
 	
