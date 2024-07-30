@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css'); */
+
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+	background-color: #1F2128 !important; 
+	
+}
+*{
+	font-family: Freesentation-9Black;
+	color: #999999;
+}
+#box{
+	width: 500px;
+	margin: auto;
+	margin-top: 300px;
+}
+	   
+/* input[type='button']{
+	width: 100px;
+} */
+input{
+	background-color: #1D1F26 !important;
+	border: 0.5px solid #2D2F35 !important;
+	font-size: 20px;
+}
+input:active, input:focus {
+	border: 0.5px soild #575C6D !important; 
+	box-shadow: none !important;
+}
+
+.btn{
+	font-weight: bold;
+	border: 1px solid yellow;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	
+}
+.btn:hover{
+	color: white !important;
+}
+
+hr {
+    background:#2D2F35 !important;
+    height:1px !important;
+    border:0 !important;
+}
+.membership1{
+	display: block;
+	float: left;
+}
+.membership2 a span{
+	display: block;
+	float: right;
+	text-decoration: none;
+}
+.membership2 a span:hover{
+	display: block;
+	float: right;
+	text-decoration: none;
+	color: white;
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="item">
+
+	<!-- select : 반드시 resultType(포장타입) or resultMap 속성 정의 -->
+	<select id="item_list"  resultType="item">
+		select * from item_search order by idx
+	</select>
+	
+	<!-- 부서별 조회 -->
+	<!-- 							parameterType = 전달인자타입
+														resultType = select결과에 대한 포장타입(각레코드에 대한) -->
+	
+	<select id="item_list_category" parameterType="String" resultType="item">
+		select * from item_search where category = #{ category } order by idx
+	</select>
+	
+	<!-- 직급별 조회 -->
+	<select id="item_list_grade" parameterType="String" resultType="item">
+		select * from item_search where grade = #{ grade } order by idx
+	</select>
+	
+	
+   <!-- Dynamic Query  -->
+   <select id="item_list_condition" parameterType="Map" resultType="item">
+	select * from item_search
+	<trim prefix="where" prefixOverrides="and | or">
+		<!-- 무기 검색 -->
+      <if test="category1 != null and category1 != 'all'">
+         category = #{category1}
+      </if>
+      
+      <!-- 방어구 검색 -->
+      <if test="category2 != null and category2 != 'all'">
+         and category = #{category2}
+      </if>
+      
+      <!-- 등급 검색 -->
+      <if test="grade != null and grade != 'all'">
+         and grade = #{grade}
+      </if>
+   </trim>
+   order by idx
+</select>
+	
+		<!-- 검색조건별 조회 -->
+		<select id="item_list_search" parameterType="Map" resultType="item">
+			select * from item_search
+			
+			<!-- Dynamic Query: 조건별 Query -->
+			<trim prefix="where" prefixOverrides="or">
+				<if test="search_text!=null">
+					category like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or grade like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or name like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option1 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option2 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option3 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option4 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option5 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option6 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option7 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option8 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option9 like '%' || #{ search_text } || '%'
+				</if>
+			</trim>
+		</select>
+
+
+</mapper>
