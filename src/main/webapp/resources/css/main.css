@@ -1,0 +1,692 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    font-family: 'Pretendard-Regular';
+    
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: none;
+}
+/* 다희 header */
+#header-box{
+    width:1300px;
+    height: 165px;
+    margin: auto;
+}
+#header{
+    position: relative;
+    height: 165px;
+    
+    background :#202126;
+    background-image: url("../images/deco_bg_2.png");
+    overflow: hidden;
+}
+#header-img1 {
+    text-align: center;
+    z-index: 10;
+    margin-top: -5px;
+}
+#header-img1 > img {
+    height: 20px;
+    width: 2000px;
+}
+#header-img2 {
+    text-align: center;
+    z-index: 11;
+    margin-top: -68px;
+}
+#header-img1 > img {
+    height: 20px;
+    width: 2000px;
+}
+#logo{
+    width: 370px;
+    height: 50px;
+    margin-top: -15px;
+    z-index: 12;
+    
+}
+#logo > img {
+    width: 250px;
+    
+}
+#login-main{
+    position: absolute;
+    top : 52px;
+    right : 17%;
+    display: inline-block;
+    
+}
+.user-circle{
+    content: "\ea38";
+}
+#login-btn a{
+    text-decoration: none;
+    color: #878788;
+    padding-right: 11px;
+    padding-left:11px;
+    font-size: 16px;
+    display: inline;
+    font-weight: 500;
+    
+}
+.updown {
+        position: absolute;
+        border: 0.1px solid #878788;
+        width: 0.1px;
+        height: 25px;
+        display: inline-block;
+    }
+#who a{
+    position: absolute;
+    display: inline-block;
+    color: #878788;
+    font-size: 14px;
+    padding-right: 6px;
+    padding-left:6px;
+    font-weight: bold;
+}
+#who a:hover{
+    color:white;
+    font-weight: bold;
+}
+    
+/* 유저 로그인시 나오는 문구 */
+#user_ment{
+    font-size: 25px;
+    font-weight: bold;
+    padding-right: 30px;
+}
+#login-btn a:hover{
+    color: white;
+}
+/* .login-icon img {
+    width: 26px;
+} */
+.login-icon{
+    display: inline-block;
+}
+#header-tab{
+    position: absolute;
+    width: 100%;
+    height: 57px;   
+    border-top: 0.7px solid #292a2b;
+    border-bottom: 1px solid #131319 !important;
+    bottom: 0;
+    
+    
+    background: #131319;
+    
+    
+}
+.navbar-inverse{
+    background-color:#131319;
+    cursor: pointer;
+}
+#header-tab-inside{
+    display:flex;
+    background-color: rgba(0, 0, 0, .1);
+    margin-left: 300px;
+}
+.container-fleid{
+    width:100%;
+    padding-top: 10px;
+/*  border-bottom: 1px solid #E9E9E9 !important; */
+}
+.container-fleid-list{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 20px;
+    padding: 0;
+}
+.container-fleid-list li{
+    list-style: none;   
+    position: relative;
+    padding: 0 25px;
+    align-items: center;
+}
+#first{
+    color: #e59d19;
+}
+#first:hover{
+    color:white;
+}
+#second{
+    color: #BFB186;
+}
+#second:hover{
+    color: #cec4a4;
+}
+.header-tab-menu a{
+    display : flex; 
+    position:relative;
+    height:100%;
+    align-items : center;
+    text-decoration: none;
+    color: #8d795c;
+    white-space: nowrap; 
+    font-weight:600;
+    font-size: 17px;
+}
+.header-tab-menu a:hover{
+    color: #ac9b82;
+}
+/* 다희 header */
+/* 콘텐츠 영역 0720 정환 css */
+/* 글자색, 이미지 미정 */
+#main-content{
+    position: relative;
+    height: auto;
+    background: #1e2128;
+}
+#item-search{
+    width: 1300px;
+    height: 700px;
+    margin: 0 auto;
+    margin-top: 10px;    
+}
+#search-title{
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 20px;
+    
+    border-bottom: 0.1px solid gray;
+}
+#search-title p{
+    display: inline;
+    font-size: 20px;
+    color: #8D795C;
+    font-weight: bold;
+}
+#search-title span{
+    font-size: 15px;
+}
+.tab-box{
+    position: relative;
+    display: flex;
+    margin-bottom: 30px;
+    
+    gap: 1.5rem;
+}
+.tabs{
+    flex: 1;
+    min-width:0;
+}
+#search-tab-list{
+    display: flex;
+    padding: 0;
+}
+.cate-box{
+    position: relative;
+    flex-grow: 1;
+}
+.cate-box a{
+    font-size: 20px;
+    font-weight: bold;
+    color: #cccccc;
+    border: 1px solid gray;
+    padding: 1.5rem;
+    
+    opacity: 0.5;
+    display: block;
+    
+    text-align: center;
+    
+    max-width: 100%;
+    white-space: nowrap; /* 공백 축소/줄바꿈x */
+    
+}
+.cate-box:not(.active):hover{
+    background: #1A1B21;
+}
+.cate-box:not(.active):hover a{
+    color: #DEDEDF;
+}
+.cate1:hover{
+    border-top-left-radius: 0.75em;
+}
+.cate4:hover{
+    border-top-right-radius: 0.75em;
+}
+.active a{
+    color: #8D795C;    
+    border-bottom-color: transparent;
+}
+#search-tab-list>li+li{
+    margin-left: -1px;
+}
+#search-tab-list>li:first-child>a{
+    border-top-left-radius: 0.75em;
+}
+#search-tab-list>li:last-child>a{
+    border-top-right-radius: 0.75em;
+}
+.sell-btn{
+    display: flex;
+    position: relative;
+    height: 62px;
+    
+    gap: 0.75rem;
+}
+#sell-link{
+    display: flex;
+    position: relative;
+    
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    
+    align-items: center;
+    
+    background: #353946;
+    color: white;
+    
+    padding-top: unset;
+    padding-bottom: unset;
+    padding: 2rem;
+    
+    font-size: 20px;
+}
+#sell-link:hover{
+    background: #2B2E36;
+}
+.search-tab{
+    width: 100%;    
+    position: relative; 
+    padding: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    
+    border: 0.7px solid #292a2b;
+}
+.tab-label{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    bottom: calc(100% - .5rem);
+    left: 1.5rem;
+    line-height: 1rem;
+    padding: 0 1rem;
+    background: #1e2128;
+}
+.game-mode{
+    display: flex;
+    position: relative;
+    
+    gap: 0.5rem;
+}
+.mode{
+    display: flex;
+    position: relative; 
+    flex: 1;
+}
+.mode-title{
+    border: 1px solid #8D795C;
+    padding:0;
+    width:100%;
+    padding: 1.5rem;
+    position: relative;
+}
+.mode-sub{
+    left: 0.5rem;
+    padding: 0 0.6rem;
+    
+    background: #1e2128;
+    
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    bottom: calc(100% - .5rem);
+    line-height: 1rem;
+}
+#item-filter{
+    position: relative;
+    margin-top: -1px;
+    width: 100%;
+    padding: 1.5rem;
+    min-height: 250px;
+    height: auto;
+    
+    border: 0.7px solid #292a2b;
+}
+#filter-title{
+    background: #1e2128;
+    
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    bottom: calc(100% - .5rem);
+    left: 1.5rem;
+    line-height: 1rem;
+    padding: 0 1rem;
+}
+.filter-box{
+    display: flex;
+    position: relative;
+    
+    gap: 1.5rem;
+}
+.filter-box1{
+    display: flex;
+    position: relative;
+    
+    gap: 0.5rem;
+    flex: 1;
+    flex-direction: column;
+    
+}
+.search-window{
+    position: relative;
+}
+.search-window #inputBox{
+    font-size: 13px;
+    height: 50px;
+    width: 100%;
+    padding: 0 6rem 0 1rem;
+    color: gray;
+    border: 0.5px solid #524427;
+    background: #121212;
+}
+.search-window input{
+    color: #8D795C;
+    font-size: 16px;
+    font-weight: 300px;
+    
+    outline: none;
+}
+.search-btn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    bottom: 5px;
+    
+    text-align: center;
+    font-size: 19px;
+    width: 3rem;
+}
+#inputBox::placeholder {
+    padding-left: 10px;
+    font-size: 13px;
+    animation: blink 1s infinite;
+}
+#inputBox_x {
+    position: absolute;
+    background-color: none;
+    right: 60px;
+    top: 13px;
+    
+    background: inherit;
+    
+    background: none;
+    border: none;
+    cursor: pointer; /* 커서 모양 변경 */
+    padding: 0; /* 패딩 제거 */
+}
+.option-filter{
+    position: relative;
+}
+#option-filter-title{
+    background: #1e2128;
+    
+    position: absolute;
+    top: -21px;
+    left: 1.5rem;
+}
+.option-filter>input[type="text"]{
+    font-size: 15px;
+    color: #8D795C;
+    padding-right: 4rem;
+    width: 100%;
+    height: 50px;
+    padding: 0 0 .2rem 1.5rem;
+    background: #15171E;
+    border: 1px solid rgba(0,0,0,0.2);
+    border: 0.5px solid #524427;
+    outline: none;
+}
+.option-filter>input[type="text"]::placeholder{
+    color: #8D795C;
+    font-size: 13px;
+}
+.option-filter>input[type="button"]{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    top: 0;
+    right: 0;
+    align-items: center;
+    padding: 0 1.25rem;
+    font-size: 1.75rem;
+    cursor: pointer;
+    transition: transform .3s;
+    background: #1e2128;
+}
+.sort-tab{
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.sort-element{
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    padding-right: 4px;
+    margin-right: 5px;
+    
+    width: 150px;
+}
+.sort-element input{
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    padding: 1.5rem;
+    background: #252830;
+    
+    border: 0.1px solid #343536;
+    border-radius: 2px;
+    
+    color: #AAAAAA;
+    
+    font-size: 16px;
+}
+.sort-element input:hover{
+    color: #C7C7C7 !important;
+}
+.d-list{
+    z-index: 1;
+    position: absolute;
+    top: calc(100% + .5rem);
+    width: 210px;
+    height: auto;
+    background-color:  #252830;
+    border-radius: .25rem;
+    padding: .5rem 0;
+    border: 1px solid #2b2e36;
+    box-shadow: 0 0 3rem 0 rgba(0,0,0,0.4);
+   
+}
+.d-list a{  
+    color: #C7C7C7 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+    background-color:  #252830;
+}
+.d-list a:hover{
+    background: #2B2E36 !important;
+    color: #C7C7C7 !important;
+}
+.Initialization{
+    position: absolute;
+    display: inline-block;
+    
+    width: 150px;
+    bottom: -5px;
+    right: -30px;
+}
+.Initialization input{
+    width: 100px;
+    text-align: center;
+    height: 50px;
+    padding: 1.5rem;
+    background: #191C20;
+    border: 0.3px solid #507CB5;
+    border-radius: 2px;
+    color: #507CB5;
+    font-size: 13px;
+    border-radius: 5.rem;
+    
+}
+.sort-tab{
+    position: relative;
+    display: inline-block;
+    padding-top: 1rem;
+    
+    border-top: 0.7px solid #292a2b;
+}
+/* 옵션 추가창 */
+#su-search-title{
+    background: #1e2128;
+    
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    bottom: calc(100% - .5rem);
+    left: 1.5rem;
+    line-height: 1rem;
+    padding: 0 1rem;
+}
+.su-search{
+    position: relative;
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 15px;
+    margin-top: 8px;
+    
+    height: 65px;
+    width: 360px;
+    
+    border: 0.1px solid #343536;
+    border-radius: 2px;
+}
+#itemName, #itemName2,
+#itemName3, #itemName4,
+#itemName5, #itemName6 {
+    width: 120px;
+    height: 35px;
+    padding: 1.5rem;
+    background: #191A20;
+    
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    
+    border: 0.2px solid #343536;
+    border-radius: 2px;
+    
+    outline: none;
+    
+    color: #B89971;
+    font-weight: bold;
+    font-size: 12px;
+}
+#su-search-input2{
+    width: 85px;
+    height: 35px;
+    padding: 1.5rem;
+    background: #191A20;
+    
+    position: absolute;
+    top: 14px;
+    left: 140px;
+    
+    border: 0.2px solid #343536;
+    border-radius: 2px;
+    
+    outline: none;
+    
+    color: #B89971;
+    font-weight: bold;
+    font-size: 12px;
+}
+.su-search input:hover,
+.su-search:hover {
+    box-shadow: 0px 0px 5px #444;
+}
+.price-search{
+    position: relative;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+    /* margin-right: 47vw; */
+    
+    width: 27vw;
+}
+.price-search input{
+    display: inline;
+    width: 10vw;
+    height: 50px;
+    padding: 1.5rem;
+    background: #252830;
+    border: 1px solid rgba(0,0,255,0.2);
+    color: blue;
+    font-weight: bold;
+    font-size: 15px;
+}
+.price-search span{
+    padding: 0 10px;
+    font-size: 15px;
+    color: #C7C7C7;
+}
+.sort-btn{
+    position: absolute;
+    display: inline-block;
+    
+    width: 200px;
+    bottom: 18px;
+    right: -80px;
+}
+.sort-btn input{
+    width: 100px;
+    text-align: center;
+    height: 120px;
+    padding: 1.5rem;
+    
+    background: #8D795C;
+    
+    border: 0px;
+    border-radius: 3px;
+    color: #C7C7C7;
+    
+    font-size: 15px;
+    font-weight: bold;
+}
+/* 정환 end */
+#article-cate{
+    width: 70%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+}
+
