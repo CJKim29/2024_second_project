@@ -273,6 +273,15 @@ public class MemberController {
 		
 		return json.toString();
 	}
-	
+	@RequestMapping("mypage.do")
+	public String mypage() {
+		
+		return "member/mypage";
+	}
+	@RequestMapping("board_list.do")
+	public String board() {
+		
+		return "member/board_list";
+	}
 	
 }
