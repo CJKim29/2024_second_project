@@ -17,4 +17,6 @@ public interface RegItemDao {
 	int getLatestPrice();
 
 	RegItemVo selectOneRegItem(int reg_idx);
+
+	int delete(int reg_idx);
 }

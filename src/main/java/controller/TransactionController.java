@@ -135,6 +135,16 @@ public class TransactionController {
 	}
 
 	
+	// 즉시구매, 낙찰(판매 종료시) 아이템 리스트에서 삭제
+	@RequestMapping("delete_auction.do")
+	public String delete_auction(int reg_idx) {
+		
+		int res	= regitem_dao.delete(reg_idx);
+		
+		return "redirect:../regitem/list.do";
+	}
+
+	
 	@RequestMapping(value = "transaction_charge.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> charge(@RequestParam("charge_point") int charge_point, 

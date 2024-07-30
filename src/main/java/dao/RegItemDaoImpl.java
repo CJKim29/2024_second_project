@@ -49,5 +49,10 @@ public class RegItemDaoImpl implements RegItemDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("regitem.selectOneRegItem", reg_idx);
 	}
+	@Override
+	public int delete(int reg_idx) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("regitem.deleteRegItem", reg_idx);
+	}
 
 }
