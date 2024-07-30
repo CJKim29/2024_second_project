@@ -50,6 +50,7 @@
 			<tr class="info">
 				<th>아이템</th>
 				<th>아이템명</th>
+				<th>아이템옵션</th>
 				<th>아이템가격</th>
 				<th>경매가격</th>
 				<th>등록시간</th>
@@ -64,6 +65,30 @@
 							</div>
 						</td>
 					<td>${ vo.reg_name }</td>
+					<td>
+						<div class="item_content">
+					          카테고리 : ${ vo.category }<br>
+					          ${ vo.grade }<br><br>
+					          ${ vo.intrinsic }<br>
+					          ${ vo.durability }<br>
+					          ${ vo.req_lev }<br>
+					          ${ vo.req_str }<br>
+					          ${ vo.req_dex }<br>
+					          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+					    </div>
+					    <div class="item_content">
+					          ${ vo.option1 }<br>
+					          ${ vo.option2 }<br>
+					          ${ vo.option3 }<br>
+					          ${ vo.option4 }<br>
+					          ${ vo.option5 }<br>
+					          ${ vo.option6 }<br>
+					          ${ vo.option7 }<br>
+					          ${ vo.option8 }<br>
+					          ${ vo.option9 }<br>
+					          ${ vo.option10 }<br>
+					    </div>
+					</td>
 					<td>${ vo.reg_price }</td>
 					<td>${ vo.auction_price }</td>
 					<td>${ vo.reg_date }</td>
