@@ -26,7 +26,7 @@
  		option7		varchar2(200),		-- 옵션7
  		option8		varchar2(200),		-- 옵션8
  		option9		varchar2(200),		-- 옵션9
- 		option10		varchar2(200)	-- 옵션10
+ 		option10	varchar2(200)		-- 옵션10
  	);
   	
   	select * from item_search

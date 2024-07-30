@@ -59,7 +59,7 @@
 	    	  ${ vo.name }
 	          <%-- ${ vo.category } --%>
 	          ${ vo.grade }
-	          ${vo.intrinsic}
+	          ${ vo.intrinsic }
 	          ${ vo.durability }
 	          ${ vo.req_lev }
 	          ${ vo.req_str }
@@ -76,6 +76,7 @@
 	          ${ vo.option7 }
 	          ${ vo.option8 }
 	          ${ vo.option9 }
+	          ${ vo.option10 }
 	    </div>
 	    
        </c:forEach>
