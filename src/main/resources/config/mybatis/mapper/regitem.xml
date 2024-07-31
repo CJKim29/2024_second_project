@@ -24,7 +24,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="reg_item_idx_list" parameterType="int" resultType="regitem">
-		select * from reg_item where reg_idx=#{ reg_idx }
+	select
+		r.*,
+		(reg_date + reg_period) as end_date
+	from
+		(select * from reg_item) r
+	where reg_idx=#{ reg_idx }  
 	</select>
     
     <!-- 경매시 화면 새로고침 -->

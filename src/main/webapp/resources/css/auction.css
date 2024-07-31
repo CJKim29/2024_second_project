@@ -227,6 +227,95 @@ td{
 	padding: 8px 0 !important;;
 }
 
+/* 임시 css */ 
+#usercard-cp {
+	background-color: #15171E;
+	width: 400px;
+	height: 50px;
+	
+	border-radius: 5px;
+	
+	display: grid;
+	grid-template-columns: 1fr 2.2fr 0.3fr 2.2fr 1fr 1.8fr;
+	align-items: center; /* gird 속성 세로 가운데 정렬 */
+    justify-items: right; /* gird 속성 가로 오른쪽 정렬 */
+    
+    font-size: 15px;
+   
+}
+
+#usercard-cp > img {
+	width: 15px;
+	height: 15px;
+}
+
+#usercard-cp2 {
+	margin-top: 3px;
+	justify-self: center;
+	background: #15171E;  
+}
+
+#usercard-cp3 {
+	justify-self: left;
+	color: #999999;
+}
+
+#usercard-cp3 span{
+	background: #15171E;  
+}	
+
+#usercard-cp5 {
+	font-size: 15px;
+	color: #999999;
+}
+
+#usercard-cp5 input{
+	background: #15171E;  
+	text-align: right;
+	width: 80px;
+}
+
+#usercard-cp6 {
+	font-size: 15px;
+	justify-self: center;
+	color: #999999;
+}
+#usercard-cp7 {
+	justify-self: center;
+}
+
+#usercard-cp6 span{
+	background: #15171E;  
+}
+
+input[type='button'] {
+	background: #8d795c;
+	height: 30px;
+	color: #f1f1f1;
+	border-radius: .25rem;
+	
+}
+
+#bid-btn{
+	margin-top: 5px;
+}
+
+#bid-btn input[type='button'] {
+	text-align: center;
+	width: 65px;
+}
+
+#bidding_point{
+	height: 35px;
+	color: #999999;
+	width: 120px;
+	background-color: #15171E;
+	margin-left: 20px;
+	margin-right: 5px;
+	border: 0;
+}
+/* 임시 css */
+
 /* 선일 footer */
 #footer-content-tool {
 	width: 1900px;

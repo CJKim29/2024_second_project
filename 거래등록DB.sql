@@ -171,12 +171,21 @@
   						'시야 +3', '언데드에게 주는 피해 +50%', '홈 있음 (1~2)', '삼길동');
 	
 	
-	
+	select * from
+	(
+	select
+		r.*,
+		(reg_date + reg_period) as end_date
+	from
+		(select * from reg_item) r
+	)	
+	where reg_idx=1
 	
 	select
-	  r.*,
-	  (reg_date + reg_period) as end_date
+		r.*,
+		(reg_date + reg_period) as end_date
 	from
-	   (select * from reg_item) r
+		(select * from reg_item) r
+	where reg_idx=1   
 	
 */

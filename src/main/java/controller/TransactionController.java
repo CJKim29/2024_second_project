@@ -201,6 +201,4 @@ public class TransactionController {
 	public MemberVo getUserInfo(@RequestParam("mem_idx") int mem_idx) {
 	    return transaction_dao.selectMember(mem_idx);
 	}
-
-
 }

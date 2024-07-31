@@ -260,58 +260,73 @@
         
         <th>등록시간</th>
         <th>경매 마감시간</th>
-        <th>현재 입찰가</th>
+        <th width="500px;">현재 입찰가</th>
     </tr>
     
-        <tr>
-            <td>
-                <div class="item_image">
-                    <img src="../resources/images/${ vo.filename }">
-                </div>
-            </td>
-            <td>${ vo.reg_name }</td>
-            <td>${ vo.reg_price }</td>
-      
-            	<%-- 즉시 판매가 <input id="transaction_point" class="form-control" value="${ vo.reg_price }"><br><br>
-                	<input type="button" class="btn btn-success" value="즉시구매" onclick="transaction();"><br><br --%>>
+       <tr>
+           <td>
+               <div class="item_image">
+                   <img src="../resources/images/${ vo.filename }">
+               </div>
+           </td>
+           <td>${ vo.reg_name }</td>
+           <td>${ vo.reg_price }</td>
+     
+           	<%-- 즉시 판매가 <input id="transaction_point" class="form-control" value="${ vo.reg_price }"><br><br>
+               	<input type="button" class="btn btn-success" value="즉시구매" onclick="transaction();"><br><br --%>
 
-            <td>${ vo.reg_date }</td>
-            <td>${ vo.reg_date }</td>
-            <td>
-            	
-                낙찰누적금액<input id="auction_point" class="form-control" value="${ vo.auction_price }">
-                	<input type="button" class="btn btn-success" value="낙찰" onclick="location.href='delete_auction.do?reg_idx=${ vo.reg_idx}';"><br><br>
-                <br>
-                <h3>입찰 방식</h3>
-                <br>
-                <table class="table" style=width:500px;>
-                    <tr class="info">
-                        <th>버튼</th>
-                        <th>직접입력</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" class="btn btn-success" value="100원" onclick="bidding_auction_button('100');"><br><br>
-                            <input type="button" class="btn btn-success" value="500원" onclick="bidding_auction_button('500');"><br><br>
-                            <input type="button" class="btn btn-success" value="1000원" onclick="bidding_auction_button('1000');"><br><br>
-                            <input type="button" class="btn btn-success" value="5000원" onclick="bidding_auction_button('5000');"><br><br>
-                        </td>
-                         <td>
-                            <input id="bidding_point" class="form-control">
-		       				<input type="button" class="btn btn-danger" value="응찰" onclick="bidding_auction();">
-                        </td>
-
-                    </tr>
-                </table>
-            </td>
-        </tr>
+           <td>${ vo.reg_date }</td>
+           <td>${ vo.end_date }</td>
+           <td style="padding-top: 0 !important;">           	
+               <h3 style="margin-top: 0;">입찰 방식</h3>
+               <hr style="margin-top: 0; margin-bottom: 10px;">
+			 <div id="usercard-cp">
+				<div id="usercard-cp2">
+					<img src="https://i.ibb.co/85LjcPV/image.jpg" alt="image" border="0">
+				</div>
+				<div id="usercard-cp3">
+					<span>현재 입찰가</span>
+				</div>
+				<div id="usercard-cp4">
+					<span></span>
+				</div>
+				<div id="usercard-cp5">
+					<input id="auction_point" class="form-control" value="${ vo.auction_price }">
+				</div>
+				<div id="usercard-cp6">
+					<span>CP</span>
+				</div>
+				<div id="usercard-cp7">
+					<input type="button" class="btn" value="낙찰"
+				   		onclick="location.href='delete_auction.do?reg_idx=${ vo.reg_idx}'">				
+				</div>
+			</div>
+               
+					<br>
+				<div id="bid-btn">
+					<div style="color: #999999;">추가 입찰할 만큼의 금액을 클릭하거나 입력하세요.</div>
+					<hr style="margin-bottom: 5px;">
+					<input type="button" class="btn" value="100"
+						onclick="bidding_auction_button('100');">
+					<input type="button" class="btn"
+						value="500" onclick="bidding_auction_button('500');">
+					<input type="button" class="btn"
+						value="1000" onclick="bidding_auction_button('1000');">
+					<input type="button" class="btn"
+						value="5000" onclick="bidding_auction_button('5000');">
+					<input id="bidding_point" class="form-control">
+					<input type="button" class="btn" value="응찰"
+						onclick="bidding_auction();">
+				</div> 
+			</td> 
+       </tr>
+	</table>
     </c:forEach>
-</table>
 				<!-- 충전하실 금액 : <input id="charge_point" class="form-control">
 		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();"> -->
 </form>
 </div>
-
+           			
 <!-- footer 선일 작업 -->
 <div id="footer-content-tool">
 	<div id="footer-content">
