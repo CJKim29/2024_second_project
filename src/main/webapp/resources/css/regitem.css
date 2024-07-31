@@ -205,8 +205,10 @@ a:hover{
 	position: absolute;
 	top: 30px;
 	left: 16vw;
+	font-weight: bold;
 }
 .table{	
+	width: 1300px;
 	margin: 0 auto; 
 	border: 1px solid rgba(0,0,0,0.2);
 	color: #878788;
@@ -428,6 +430,7 @@ td{
 	margin-top: 50px;
 	font-size: 13px;
 	color: #626262;
+	margin-right: 37px;
 }
 
 #footer-content-sub22 {
@@ -499,7 +502,7 @@ td{
     overflow: hidden;
 
 	margin-top: 20px;
-    padding-left: 40px;
+    padding-left: 23px;
 }
 
 #footer-content-sub4-img {

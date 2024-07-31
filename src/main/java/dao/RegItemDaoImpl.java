@@ -26,9 +26,9 @@ public class RegItemDaoImpl implements RegItemDao {
 		return sqlSession.selectList("regitem.reg_item_list");
 	}
 	@Override
-	public List<RegItemVo> selectList(Map<String, Object> map) {
+	public List<RegItemVo> selectList(Map<String, Object> page) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("regitem.reg_item_page_list", map);
+		return sqlSession.selectList("regitem.reg_item_page_list", page);
 	}
 	@Override
 	public List<RegItemVo> selectOneReg(int reg_idx) {

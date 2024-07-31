@@ -15,7 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(
 		select
 			rank() over(order by reg_idx desc) as no,
-			r.* 
+			r.* ,
+			(reg_date + reg_period) as end_date
 		from 
 			(select * from reg_item) r
 		)	

@@ -33,7 +33,7 @@ public class RegItemController {
 	
 	@RequestMapping("list.do")
 	public String list(@RequestParam(name = "page",defaultValue = "1") int nowPage,
-						Model model) {
+						Model model, RegItemVo vo) {
 		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -55,7 +55,7 @@ public class RegItemController {
 										   rowTotal, 
 										   MyCommon.Auction.BLOCK_LIST, 
 										   MyCommon.Auction.BLOCK_PAGE);
-		
+
 		model.addAttribute("list", list);
 		model.addAttribute("pageMenu", pageMenu);
 		

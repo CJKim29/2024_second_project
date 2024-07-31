@@ -7,7 +7,7 @@ import vo.RegItemVo;
 
 public interface RegItemDao {
     List<RegItemVo> selectList();
-    List<RegItemVo> selectList(Map<String, Object> map);
+    List<RegItemVo> selectList(Map<String, Object> page);
 
 	List<RegItemVo> selectOneReg(int reg_idx);
 

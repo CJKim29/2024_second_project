@@ -17,12 +17,6 @@
 
 <link rel="stylesheet" href="../resources/css/regitem.css">
 
-<style type="text/css">
-.table{
-	width: 1300px;
-}
-</style>
-
 <script type="text/javascript">
 	
 	function buy(reg_idx) {
@@ -190,8 +184,7 @@
 					          ${ vo.option10 }<br>
 					    </div>
 					</td>
-					<%-- <td style="padding:8px 13px 8px 0; text-align: center;">${ vo.reg_price }</td>
-					<td style="padding:8px 8px 8px 0; text-align: center;">${ vo.auction_price }</td> --%>
+					
 					
 					<td>
 						<!-- 거래회원 정보 기입란 -->
@@ -217,7 +210,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="item_clock2">${ fn:substring(vo.reg_date,0,19) }</span><br>
                     <span class="item_clock">종료예정</span>
-                    <span class="item_clock2">2024-08-02 09:24:14</span>
+                    <span class="item_clock2">${ fn:substring(vo.end_date,0,19) }</span>
                 </div>
                 <hr>
                 <div id="usercard-text2">
@@ -279,19 +272,19 @@
 		<div id="footer-content-sub">
 			<div id="footer-content-sub1">
 				<span id="footer-content-sub1-1">주식회사 디션</span> <span
-					id="footer-content-sub1-2">서울 강남구 테헤란로33길 33 태양빌딩 2층 ㅣ 대표
-					정훈용 ㅣ 사업자등록번호 117-86-02090</span><br> <span
-					id="footer-content-sub1-3">문의 contact@chaoscube.co.kr ㅣ
-					통신판매업신고 제 2021-서울강남-06404 호 ㅣ 개인정보 보호 책임자 송병주</span><br>
+					id="footer-content-sub1-2">서울 관악구 남부순환로 1820 에그엘로우 7층 ㅣ 대표
+					김찬종 ㅣ 사업자등록번호 111-11-11111</span><br> <span
+					id="footer-content-sub1-3">문의 kkcpc@globalit.com ㅣ
+					통신판매업신고 제 2024-서울관악-99999 호 ㅣ 개인정보 보호 책임자 박정환</span><br>
 			</div>
 		</div>
 
 		<div id="footer-content-sub2">
 			<div id="footer-content-sub1">
 				<span id="footer-content-sub1-1">디션 지원실 1533-4636</span> <span
-					id="footer-content-sub1-2">업무시간 ㅣ 월 ~ 금 AM 09:00 ~ PM 6:00
+					id="footer-content-sub1-2">업무시간 ㅣ 월 ~ 금 AM 09:30 ~ PM 6:20
 					(주말 공휴일 휴무) </span><br> <span id="footer-content-sub1-3">점심시간
-					ㅣ PM 12:00 ~ PM 1:00</span><br>
+					ㅣ PM 12:20 ~ PM 1:30</span><br>
 			</div>
 		</div>
 

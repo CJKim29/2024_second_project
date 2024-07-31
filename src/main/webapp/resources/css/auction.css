@@ -226,24 +226,6 @@ td{
 	vertical-align: middle !important;
 	padding: 8px 0 !important;;
 }
-.item_image{
-	text-align: center;
-}
-.item_content1{
-	color: #597eb5;
-}
-
-#transaction_point{
-	width: 100px;
-	text-align: right;
-	background: #1c1e24;
-	color: #878788;
-}
-
-#transaction_btn{
-	background: #8d795c;
-	color: #f1f1f1;
-}
 
 /* 선일 footer */
 #footer-content-tool {
