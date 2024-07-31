@@ -8,12 +8,19 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body{
 	background-color: #1F2128 !important; 
 	
 }
 *{
-	font-family: Freesentation-9Black;
+	font-family: Pretendard-Regular;
 	color: #999999;
 }
 #box{
@@ -31,8 +38,19 @@ input{
 	font-size: 20px;
 }
 input:active, input:focus {
-	border: 0.5px soild #575C6D !important; 
+	border: 0.5px soild #ac8d5a !important; 
 	box-shadow: none !important;
+}
+
+/* 자동완성 관련 커스텀 */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+	-webkit-text-fill-color: #999;		/* 글씨 색 */
+/*  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset; */
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /* 버튼 기본 속성 제거 + 커스텀 */
@@ -51,6 +69,7 @@ input:active, input:focus {
 }
 .btn:hover{
 	color: white !important;
+	border:1px solid #ac8d5a !important;
 }
 
 hr {

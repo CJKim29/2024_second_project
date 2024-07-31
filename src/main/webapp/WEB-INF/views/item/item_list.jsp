@@ -307,7 +307,7 @@
 <!-- 검색창 영역 -->
 <form class="form-inline">
 
-	아이템: <select class="form-control menu" id="category1">
+	<span class="it">아이템 : </span> <select class="form-control menu" id="category1">
 				<option value="all">전체보기</option>
 				<option value="단도">단도</option>
 				<option value="한손검">한손검</option>
@@ -331,18 +331,18 @@
 				<option value="반지">반지</option>
 				<option value="목걸이">목걸이</option>
 			</select>
-			<input style="background-color: #2B2E36;" class="btn search_btn" type="button" value="검색" onclick="search1();">
+			<input style="background-color: #2B2E36; margin-right: 50px;" class="btn search_btn" type="button" value="검색" onclick="search1();">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			
 	
-	등급: <select class="form-control menu" id="grade">
+	등급 : <select class="form-control menu" id="grade">
 				<option value="all">전체보기</option>
 				<option value="노멀">노멀</option>
 				<option value="익셉셔널">익셉셔널</option>
 				<option value="엘리트">엘리트</option>
 			</select>
-			<input style="background-color: #2B2E36;" class="btn search_btn" type="button" value="검색" onclick="search_grade();">
+			<input style="background-color: #2B2E36; margin-right: 50px;" class="btn search_btn" type="button" value="검색" onclick="search_grade();">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			
@@ -362,12 +362,14 @@
 			<option value="20">20</option>
 		</select> -->
 			
-			<input style="background-color: #2B2E36;" type="button" class="btn search_btn" value="전체조건검색" onclick="search_all();">
+			<input style="background: #2B2E36;" id="search_text" class="form-control menu">
+	       	<input style="background-color: #2B2E36;" type="button" class="btn search_btn" 
+	       		   value="검색" placeholder="검색어로 검색하기" onclick="find();">
+
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			<input id="search_text" class="form-control">
-	       	<input style="background-color: #2B2E36;" type="button" class="btn search_btn" value="검색" onclick="find();">
 	
+			<input type="button" class="btn search_btn all"
+				   value="전체검색" onclick="search_all();">
 	<hr>
 	<div id="disp"></div>
 	

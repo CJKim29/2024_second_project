@@ -55,31 +55,41 @@
 
 		<!-- for(SawonVo vo : list) -->
 	<c:forEach var="vo"  items="${ requestScope.list }">
+		<!-- 아이템 이미지 -->	
 		<div class="item_image">
 	       <img src="../resources/images/${ vo.filename }">
 	    </div>
-	    <div class="item_content1">
-	    	  ${ vo.name }<br>
-	          <%-- ${ vo.category } --%>
-	          ${ vo.grade }<br>
-	          ${vo.intrinsic}<br>
-	          ${ vo.durability }<br>
-	          ${ vo.req_lev }<br>
-	          ${ vo.req_str }<br>
-	          ${ vo.req_dex }<br>
-	          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
-	    </div>
+	
+	    <span class="line"></span>	<!-- 구분선 -->
+	    <!-- 아이템 설명 -->
+	    <div class="content_wrap">
+		    <div class="item_content1">
+		    	  ${ vo.name }<br>
+		          <%-- ${ vo.category } --%>
+		          ${ vo.grade }<br>
+		          ${vo.intrinsic}<br>
+		          ${ vo.durability }<br>
+		          ${ vo.req_lev }<br>
+		          ${ vo.req_str }<br>
+		          ${ vo.req_dex }<br>
+		          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+		    </div>
+		</div>
 	    
-	    <div class="item_content2">
-	          ${ vo.option1 }<br>
-	          ${ vo.option2 }<br>
-	          ${ vo.option3 }<br>
-	          ${ vo.option4 }<br>
-	          ${ vo.option5 }<br>
-	          ${ vo.option6 }<br>
-	          ${ vo.option7 }<br>
-	          ${ vo.option8 }<br>
-	          ${ vo.option9 }<br>
+	    <span class="line2"></span>	<!-- 구분선2 -->
+	    
+	    <div class="content_wrap">
+		    <div class="item_content2">
+		          ${ vo.option1 }<br>
+		          ${ vo.option2 }<br>
+		          ${ vo.option3 }<br>
+		          ${ vo.option4 }<br>
+		          ${ vo.option5 }<br>
+		          ${ vo.option6 }<br>
+		          ${ vo.option7 }<br>
+		          ${ vo.option8 }<br>
+		          ${ vo.option9 }<br>
+		    </div>
 	    </div>
     	<hr>
       </c:forEach>
