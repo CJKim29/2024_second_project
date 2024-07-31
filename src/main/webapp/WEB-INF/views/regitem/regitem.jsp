@@ -143,12 +143,23 @@
 	<input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">
 
 	<table class="table">
+
 			<tr style="background: #131319; height: 50px;">
 				<th style="padding-left: 100px;">아이템</th>
 				<th style="padding: 8px 0 8px 60px;">아이템명</th>
 				<th style="padding: 8px 0 8px 60px;">아이템옵션</th>
 				
 				<th style="padding-left: 230px;">거래정보</th>		
+
+			<tr class="info">
+				<th>아이템</th>
+				<th>아이템명</th>
+				<th>아이템옵션</th>
+				<th>아이템가격</th>
+				<th>경매가격</th>
+				<th>등록시간</th>
+				<th>구매신청</th>
+
 			</tr>
 			
 			<c:forEach var="vo" items="${ list }">
@@ -159,6 +170,34 @@
 							</div>
 						</td>
 					<td>${ vo.reg_name }</td>
+
+					<td>
+						<div class="item_content">
+					          카테고리 : ${ vo.category }<br>
+					          ${ vo.grade }<br><br>
+					          ${ vo.intrinsic }<br>
+					          ${ vo.durability }<br>
+					          ${ vo.req_lev }<br>
+					          ${ vo.req_str }<br>
+					          ${ vo.req_dex }<br>
+					          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+					    </div>
+					    <div class="item_content">
+					          ${ vo.option1 }<br>
+					          ${ vo.option2 }<br>
+					          ${ vo.option3 }<br>
+					          ${ vo.option4 }<br>
+					          ${ vo.option5 }<br>
+					          ${ vo.option6 }<br>
+					          ${ vo.option7 }<br>
+					          ${ vo.option8 }<br>
+					          ${ vo.option9 }<br>
+					          ${ vo.option10 }<br>
+					    </div>
+					</td>
+					<td>${ vo.reg_price }</td>
+					<td>${ vo.auction_price }</td>
+					<td>${ vo.reg_date }</td>
 					<td>
 						<div class="item_content1">
 							  <br>

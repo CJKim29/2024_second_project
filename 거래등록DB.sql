@@ -30,8 +30,12 @@
  		option7			varchar2(200),		-- 옵션7
  		option8			varchar2(200),		-- 옵션8
  		option9			varchar2(200),		-- 옵션9
+
  		option10		varchar2(200),		-- 옵션10
  		reg_mem_name	varchar2(200)		-- 판매등록자
+
+ 		option10		varchar2(200)		-- 옵션10
+
 	)
 	
 	select * from reg_item
@@ -181,11 +185,23 @@
 	)	
 	where reg_idx=1
 	
+
 	select
 		r.*,
 		(reg_date + reg_period) as end_date
 	from
 		(select * from reg_item) r
 	where reg_idx=1   
+	
+	
+	
+	insert into reg_item (reg_idx, filename, reg_name, reg_price, auction_price, reg_date, category, grade, intrinsic, durability, req_str, req_dex, req_lev,
+                      option1, option2, option3, option4, option5, option6)
+						values (seq_item_search_idx.nextVal, '천상의 의복.jpg', '천상의 의복'||chr(10)||'라이트 플레이트', 10000, 0, sysdate, '갑옷', '노멀', 
+        				'방어력:216', '내구도:60', '필요 힘:41', '', '요구 레벨:29', '언데드에게 주는 피해 +50%', '언데드에 대한 명중률 +100', '방어력 +100% 증가',
+        				'마력 +15', '마나 재생 25%', '모든 저항 +10')
+	
+	select * from reg_item
+>>>>>>> branch 'JH/0' of https://github.com/CJKim29/2024_second_project.git
 	
 */
