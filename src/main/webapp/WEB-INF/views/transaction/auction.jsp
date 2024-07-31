@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -62,39 +63,16 @@
 	    });
 	}//end:transaction()
 
-	function bidding_auction() {
-		
-		const bidding_point = $("#bidding_point").val();
-		
-		$.ajax({
-			url		:	"bidding_auction.do",
-			data	:	{"bidding_point":bidding_point,"mem_idx":"${ user.mem_idx }"},
-			success	:	function(res_data){
-				
-				location.reload(); // 페이지를 새로고침
-			},
-			error	:	function(err){
-				alert(err.responseText)
-			}
-		});
-	}//end:bidding_auction()
+	function bidding_auction(reg_idx) {
+        var bidding_point = document.getElementById("auction_point").value;
+    
+        if (bidding_point != null && bidding_point !== "") {
+            window.location.href = 'bidding_auction.do?bidding_point=' + bidding_point + '&reg_idx=' + reg_idx;
+        } else {
+            alert("입찰할 금액을 입력하세요.");
+        }
+    }//end:bidding_auction()
 	
-	function bidding_auction_button(buttonValue) {
-		
-		const bidding_point_button = buttonValue;
-		
-		$.ajax({
-			url		:	"bidding_auction_button.do",
-			data	:	{"bidding_point_button":bidding_point_button},
-			success	:	function(res_data){
-				
-				location.reload(); // 페이지를 새로고침
-			},
-			error	:	function(err){
-				alert(err.responseText)
-			}
-		});
-	}//end:bidding_auction()
 	
 	function charge() {
 	    const charge_point = $("#charge_point").val();
@@ -255,28 +233,49 @@
 	<table class="table">
     <tr style="background: #131319; height: 50px;">
         <th>아이템</th>
-        <th>아이템명</th>
-        <th>최초 입찰가</th>
-        
-        <th>등록시간</th>
-        <th>경매 마감시간</th>
-        <th width="500px;">현재 입찰가</th>
+		<th style="padding: 8px 0 8px 70px;">아이템옵션</th>        
+        <th style="padding-left:40px;">등록시간</th>
+        <th style="padding-left:40px;">경매 마감시간</th>
+        <th style="padding-left:200px;" width="500px;">현재 입찰가</th>
     </tr>
     
        <tr>
            <td>
                <div class="item_image">
-                   <img src="../resources/images/${ vo.filename }">
+                   <img src="../resources/images/${ vo.filename }"><br>
+                   <span>${ vo.reg_name }</span>
                </div>
            </td>
-           <td>${ vo.reg_name }</td>
-           <td>${ vo.reg_price }</td>
-     
+			<td>
+					<div class="item_content1">
+						  <br>
+				          카테고리 : ${ vo.category }<br>
+				          ${ vo.grade }<br><br>
+				          ${ vo.intrinsic }<br>
+				          ${ vo.durability }<br>
+				          ${ vo.req_lev }<br>
+				          ${ vo.req_str }<br>
+				          ${ vo.req_dex }<br>
+				          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+				    </div>
+				    <div class="item_content2">
+				          ${ vo.option1 }<br>
+				          ${ vo.option2 }<br>
+				          ${ vo.option3 }<br>
+				          ${ vo.option4 }<br>
+				          ${ vo.option5 }<br>
+				          ${ vo.option6 }<br>
+				          ${ vo.option7 }<br>
+				          ${ vo.option8 }<br>
+				          ${ vo.option9 }<br>
+				          ${ vo.option10 }<br>
+				    </div>
+			</td>
            	<%-- 즉시 판매가 <input id="transaction_point" class="form-control" value="${ vo.reg_price }"><br><br>
                	<input type="button" class="btn btn-success" value="즉시구매" onclick="transaction();"><br><br --%>
 
-           <td>${ vo.reg_date }</td>
-           <td>${ vo.end_date }</td>
+           <td>${ fn:substring(vo.reg_date,0,19) }</td>
+           <td>${ fn:substring(vo.end_date,0,19) }</td>
            <td style="padding-top: 0 !important;">           	
                <h3 style="margin-top: 0;">입찰 방식</h3>
                <hr style="margin-top: 0; margin-bottom: 10px;">
@@ -297,7 +296,7 @@
 					<span>CP</span>
 				</div>
 				<div id="usercard-cp7">
-					<input type="button" class="btn" value="낙찰"
+					<input id="" type="button" class="btn" value="낙찰"
 				   		onclick="location.href='delete_auction.do?reg_idx=${ vo.reg_idx}'">				
 				</div>
 			</div>
@@ -314,10 +313,25 @@
 						value="1000" onclick="bidding_auction_button('1000');">
 					<input type="button" class="btn"
 						value="5000" onclick="bidding_auction_button('5000');">
-					<input id="bidding_point" class="form-control">
+					<input id="bidding_point" class="form-control" value="0">
 					<input type="button" class="btn" value="응찰"
-						onclick="bidding_auction();">
+						onclick="bidding_auction(${ vo.reg_idx });">
 				</div> 
+			<script>
+				// 클릭된 버튼의 값을 입력 필드에 추가하는 함수
+				function bidding_auction_button(amount) {
+					// 입력 필드를 가져옵니다.
+					var inputField = document
+							.getElementById('bidding_point');
+
+					// 입력 필드의 현재 값과 클릭된 버튼의 값을 더하여 업데이트합니다.
+					var currentValue = parseInt(inputField.value); // 기존 값 정수로 변환
+					var newValue = currentValue + parseInt(amount); // 새로운 값 계산
+
+					// 입력 필드에 새로운 값을 설정합니다.
+					inputField.value = newValue;
+				}
+			</script>
 			</td> 
        </tr>
 	</table>

@@ -226,6 +226,13 @@ td{
 	vertical-align: middle !important;
 	padding: 8px 0 !important;;
 }
+.item_image{
+	text-align: center;
+}
+.item_content1{
+	color: #597eb5;
+}
+
 
 /* 임시 css */ 
 #usercard-cp {
@@ -313,6 +320,7 @@ input[type='button'] {
 	margin-left: 20px;
 	margin-right: 5px;
 	border: 0;
+	text-align: right;
 }
 /* 임시 css */
 
