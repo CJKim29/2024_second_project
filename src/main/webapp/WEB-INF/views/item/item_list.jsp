@@ -11,18 +11,16 @@
 <head>
 <meta charset="UTF-8">
 <title>search_item</title>
+
+<!-- css -->
+<link rel="stylesheet" href="../resources/css/member/main.css">
+<link rel="stylesheet" href="../resources/css/item/item_list.css">
+
 <!--  Bootstrap  3.x  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-#box{
-	width: 1400px;
-	margin: auto;
-	margin-top: 50px;
-}
-</style>
 
 <script type="text/javascript">
 
@@ -144,6 +142,7 @@
 				  alert(err.responseText);
 			  }
 		  }); 
+		 
 	}//end:find()
 
 </script>
@@ -167,10 +166,148 @@
 
 </head>
 <body>
-<div id="box">
+
+
+<!-- header 다희 코드 -->
+   <div id="header">
+   	<div id="header-img1">
+   		<img alt="" src="../resources/images/deco_bg_1.png">
+   	</div>
+   	<div id="header-img2">
+   		<img alt="" src="../resources/images/deco_1.png">
+   	</div>
+       <div id="header-box">
+        <div id="logo">
+            <img alt="" src="../resources/images/디션.png">
+        </div>
+        <div id="login-main">
+            <div id="login-btn">
+                <!-- 로그인 화면 전환 -->
+                <!-- 로그인 안되었을 때 session ~~ -->
+                <!-- <c:if test="${ empty sessionScope.user }"> -->
+                <div class="login-icon">
+                    <a style="cursor: pointer;" href="#"> 
+                        <!-- <img src="../image/user_icon.png"> -->
+                        <i class="user-circle"></i>
+                        로그인
+                    </a>                  
+                </div>
+                    <a href="#">회원가입</a>
+                <!-- </c:if> -->
+                <!-- 로그인 되었을 때 session 살리기~~ -->
+                <!--  <c:if test="${ not empty sessionScope.user }">
+                    <span id="user_ment">${ sessionScope.user.mem_nickname }님</span>
+                로그아웃시 실행될 onclick 함수
+                    <a id="logout" style="cursor:pointer;">로그아웃</a>
+                </c:if>
+                로그인 계정이 관리자일 경우 회원관리 버튼 생성
+                <c:if test="${ user.mem_grade eq '관리자' }">
+                    <a href="../member/list.do">회원관리</a>
+                </c:if>
+                <c:if test="${ user.mem_grade eq '일반' }">
+                    <a onclick="location.href='../member/modify_form.do?mem_idx=${user.mem_idx}'"
+                     style="cursor:pointer;">내정보</a>
+                </c:if> -->     
+                &nbsp;
+                <div class="updown"></div>
+                &nbsp;
+                <a href="#">채팅</a>
+                <a id="who" onclick="blink();" style="cursor:pointer;">
+                	<img src="../resources/images/who.PNG">비회원
+                </a>
+            </div>
+        </div>
+       </div>
+       	
+       <div id="header-tab">
+       	<div id="header-tab-inside">
+            <nav class="navbar navbar-inverse">
+			  <div class="container-fleid">
+			    <ul class="container-fleid-list">
+			    <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a id="first" href="#">
+			        	<img src="../resources/images/li1.PNG">
+			        	<span>레저렉션</span>
+			        </a>
+			      </li>
+			      <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a id="second" href="#">
+			        	<span>아이템 마켓</span>
+			        </a>
+			      </li>
+			       <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a href="#">
+			        	<span>커뮤니티</span>
+			        </a>
+			      </li>
+			       <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a href="#">
+			        	<span>베스트</span>
+			        </a>
+			      </li>
+			       <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a href="#">
+			        	<span>아이템 정보</span>
+			        </a>
+			      </li>
+			      <img src="../resources/images/category.png">
+			      <li class="dropdown header-tab-menu">
+			        <a href="#">
+			        	<span>DP충전</span>
+			        </a>
+			      </li>
+			      <img src="../resources/images/category.png">
+			    </ul>
+			  </div>
+			</nav>
+		</div>
+       </div>
+       
+   </div><!-- end - header -->
+   
+   
+   
+   <div id="box">
+       <!-- <div id="main-content" style="padding-top: 10px;"> -->
+        
+        <!-- 광고배너 -->
+        <!-- <div id="commercial" style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+            <img style="width: 1300px; height: 300px;" src="../resources/images/banner.PNG">
+        </div> -->
+        
+        <div id="headline">
+        	<strong id="headline-text">
+        		<img src="../resources/images/mypage.PNG">
+        		아이템 정보
+        		<em id="piperline">
+        			|
+        		</em>
+        		<span>아이템 검색</span>
+        		<div class="mypage-image1">
+	        		<img src="../resources/images/cc-category-titlepin.png" style="height: 11px; width: 11px;">
+	        	</div>
+	        	<div class="mypage-image2">
+	        		<img src="../resources/images/cc-category-titleline.png" style="width: 230px;">
+	        	</div>
+	        	<div class="mypage-image3">
+	        		<img src="../resources/images/cc-category-titlepin.png" style="height: 11px; width: 11px;">
+	        	</div>
+        	</strong>
+        </div>
+<!-- </div> -->
+
+
+
+
+<!-- 검색창 영역 -->
 <form class="form-inline">
 
-	무기종류:<select class="form-control" id="category1">
+	아이템: <select class="form-control menu" id="category1">
 				<option value="all">전체보기</option>
 				<option value="단도">단도</option>
 				<option value="한손검">한손검</option>
@@ -185,13 +322,6 @@
 				<option value="양손지팡이">양손지팡이</option>
 				<option value="철퇴">철퇴</option>
 				<option value="홀">홀</option>
-			</select>
-			<input class="btn btn-primary" type="button" value="종류별검색" onclick="search1();">
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			
-	방어구종류:<select class="form-control" id="category2">
-				<option value="all">전체보기</option>
 				<option value="갑옷">갑옷</option>
 				<option value="투구">투구</option>
 				<option value="방패">방패</option>
@@ -201,17 +331,18 @@
 				<option value="반지">반지</option>
 				<option value="목걸이">목걸이</option>
 			</select>
-			<input class="btn btn-primary" type="button" value="종류별검색" onclick="search2();">
+			<input style="background-color: #2B2E36;" class="btn search_btn" type="button" value="검색" onclick="search1();">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
 	
-	등급:<select class="form-control" id="grade">
+	등급: <select class="form-control menu" id="grade">
 				<option value="all">전체보기</option>
 				<option value="노멀">노멀</option>
 				<option value="익셉셔널">익셉셔널</option>
 				<option value="엘리트">엘리트</option>
 			</select>
-			<input class="btn btn-primary" type="button" value="등급별검색" onclick="search_grade();">
+			<input style="background-color: #2B2E36;" class="btn search_btn" type="button" value="검색" onclick="search_grade();">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			
@@ -231,13 +362,16 @@
 			<option value="20">20</option>
 		</select> -->
 			
-			<input type="button" class="btn btn-warning" value="전체조건검색" onclick="search_all();">
+			<input style="background-color: #2B2E36;" type="button" class="btn search_btn" value="전체조건검색" onclick="search_all();">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			<input id="search_text" class="form-control">
-	       	<input type="button" class="btn btn-info" value="검색" onclick="find();">
+	       	<input style="background-color: #2B2E36;" type="button" class="btn search_btn" value="검색" onclick="find();">
+	
 	<hr>
 	<div id="disp"></div>
+	
+	
 </form>
 </div>
 </body>

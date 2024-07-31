@@ -35,6 +35,13 @@ input:active, input:focus {
 	box-shadow: none !important;
 }
 
+/* 버튼 기본 속성 제거 + 커스텀 */
+.btn:active, .btn:focus {
+	outline: none !important;
+	box-shadow: none !important;
+	color: #999 !important;
+	}
+	
 .btn{
 	font-weight: bold;
 	border: 1px solid yellow;
