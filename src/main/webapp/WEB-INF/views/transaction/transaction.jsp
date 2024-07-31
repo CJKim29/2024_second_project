@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,11 +17,6 @@
 
 <link rel="stylesheet" href="../resources/css/transaction.css">
 
-<style type="text/css">
-.table{
-	width: 1200px;
-}
-</style>
 
 <script type="text/javascript">
 	
@@ -181,43 +178,58 @@
 <div id="box">
 <form class="form-inline">
 	
-
-				<!-- 고객명
-				계좌잔액
-	 -->
-			     <%--  id="user_name">${ user.mem_name }
-			      id="user_point">${ user.mem_point }
- --%>
-
-	
+	<c:forEach var="vo" items="${ list }">
+	<div id="gong"><span>${ vo.reg_name }</span></div>	
 	<table class="table">
-			<tr class="info">
-				<th>아이템</th>
-				<th>아이템명</th>
-				<th>아이템가격</th>
-				<th>등록시간</th>
-				<th>구매여부</th>
+			<tr style="background: #131319; height: 50px;">
+				<th style="padding-left: 130px;">아이템</th>
+				<th style="padding: 8px 0 8px 70px;">아이템옵션</th>
+				<th style="padding-left:40px;">등록시간</th>
+				<th style="text-align: center; padding-right: 20px;">구매여부</th>
 			</tr>
 			
-			<c:forEach var="vo" items="${ list }">
 				<tr>
 					<td>
 						<div class="item_image">
-								<img src="../resources/images/${ vo.filename }">
+								<img src="../resources/images/${ vo.filename }"><br>
+								<span>${ vo.reg_name }</span>
 							</div>
 						</td>
-					<td>${ vo.reg_name }</td>
-					<td>${ vo.reg_price }</td>
-					<td>${ vo.reg_date }</td>
 					<td>
-       					거래금액 : <input id="transaction_point" class="form-control" value="${ vo.reg_price }"><br><br>
-				       	<input type="button" class="btn btn-success" value="거래" onclick="transaction();"><br><br>
+						<div class="item_content1">
+							  <br>
+					          카테고리 : ${ vo.category }<br>
+					          ${ vo.grade }<br><br>
+					          ${ vo.intrinsic }<br>
+					          ${ vo.durability }<br>
+					          ${ vo.req_lev }<br>
+					          ${ vo.req_str }<br>
+					          ${ vo.req_dex }<br>
+					          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+					    </div>
+					    <div class="item_content2">
+					          ${ vo.option1 }<br>
+					          ${ vo.option2 }<br>
+					          ${ vo.option3 }<br>
+					          ${ vo.option4 }<br>
+					          ${ vo.option5 }<br>
+					          ${ vo.option6 }<br>
+					          ${ vo.option7 }<br>
+					          ${ vo.option8 }<br>
+					          ${ vo.option9 }<br>
+					          ${ vo.option10 }<br>
+					    </div>
+					</td>
+					<td style="width: 200px;">${ fn:substring(vo.reg_date,0,19) }</td>
+					<td style="text-align: center;">
+       					즉시구매가 : <input id="transaction_point" readonly="readonly" class="form-control" value="${ vo.reg_price }"> 
+								 <input type="button" id="transaction_btn" class="btn" value="구매" onclick="transaction();">
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
-				충전하실 금액 : <input id="charge_point" class="form-control">
-		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();">
+				<!-- 충전하실 금액 : <input id="charge_point" class="form-control">
+		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();"> -->
 </form>
 </div>
 
@@ -227,19 +239,19 @@
 		<div id="footer-content-sub">
 			<div id="footer-content-sub1">
 				<span id="footer-content-sub1-1">주식회사 디션</span> <span
-					id="footer-content-sub1-2">서울 강남구 테헤란로33길 33 태양빌딩 2층 ㅣ 대표
-					정훈용 ㅣ 사업자등록번호 117-86-02090</span><br> <span
-					id="footer-content-sub1-3">문의 contact@chaoscube.co.kr ㅣ
-					통신판매업신고 제 2021-서울강남-06404 호 ㅣ 개인정보 보호 책임자 송병주</span><br>
+					id="footer-content-sub1-2">서울 관악구 남부순환로 1820 에그엘로우 7층 ㅣ 대표
+					김찬종 ㅣ 사업자등록번호 111-11-11111</span><br> <span
+					id="footer-content-sub1-3">문의 kkcpc@globalit.com ㅣ
+					통신판매업신고 제 2024-서울관악-99999 호 ㅣ 개인정보 보호 책임자 박정환</span><br>
 			</div>
 		</div>
 
 		<div id="footer-content-sub2">
 			<div id="footer-content-sub1">
 				<span id="footer-content-sub1-1">디션 지원실 1533-4636</span> <span
-					id="footer-content-sub1-2">업무시간 ㅣ 월 ~ 금 AM 09:00 ~ PM 6:00
+					id="footer-content-sub1-2">업무시간 ㅣ 월 ~ 금 AM 09:30 ~ PM 6:20
 					(주말 공휴일 휴무) </span><br> <span id="footer-content-sub1-3">점심시간
-					ㅣ PM 12:00 ~ PM 1:00</span><br>
+					ㅣ PM 12:20 ~ PM 1:30</span><br>
 			</div>
 		</div>
 
