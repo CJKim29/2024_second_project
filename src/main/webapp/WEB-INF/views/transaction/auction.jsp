@@ -62,9 +62,8 @@
 	        }
 	    });
 	}//end:transaction()
-  // 변수 수정해야함!
-	function bidding_auction(reg_idx) {
 
+	function bidding_auction(reg_idx) {
         var bidding_point = document.getElementById("auction_point").value;
     
         if (bidding_point != null && bidding_point !== "") {
@@ -74,32 +73,6 @@
         }
     }//end:bidding_auction()
 	
-
-	    var bidding_point = document.getElementById("bidding_point").value;
-	
-	    if (bidding_point != null && bidding_point !== "") {
-	        window.location.href = 'bidding_auction.do?bidding_point=' + bidding_point + '&reg_idx=' + reg_idx;
-	    } else {
-	        alert("입찰할 금액을 입력하세요.");
-	    }
-	}//end:bidding_auction()
-		
-	function bidding_auction_button(buttonValue) {
-		
-		const bidding_point_button = buttonValue;
-		
-		$.ajax({
-			url		:	"bidding_auction_button.do",
-			data	:	{"bidding_point_button":bidding_point_button},
-			success	:	function(res_data){
-				
-				location.reload(); // 페이지를 새로고침
-			},
-			error	:	function(err){
-				alert(err.responseText)
-			}
-		});
-	}//end:bidding_auction()
 	
 	function charge() {
 	    const charge_point = $("#charge_point").val();
@@ -266,7 +239,6 @@
         <th style="padding-left:200px;" width="500px;">현재 입찰가</th>
     </tr>
     
-
        <tr>
            <td>
                <div class="item_image">
@@ -363,51 +335,6 @@
 			</td> 
        </tr>
 	</table>
-
-    <c:forEach var="vo" items="${ list2 }">
-        <tr>
-            <td>
-                <div class="item_image">
-                    <img src="../resources/images/${ vo.filename }">
-                </div>
-            </td>
-            <td>${ vo.reg_name }</td>
-            <td>${ vo.reg_price }</td>
-            <td>
-            	즉시 판매가 <input id="transaction_point" class="form-control" value="${ vo.reg_price }"><br><br>
-                	<input type="button" class="btn btn-success" value="즉시구매" onclick="transaction();"><br><br>
-            </td>
-            <td>${ vo.reg_date }</td>
-            <td>${ vo.reg_date }</td>
-            <td>
-            	
-                낙찰누적금액<input id="auction_point" class="form-control" value="${ vo.auction_price }">
-                	<input type="button" class="btn btn-success" value="낙찰" onclick="location.href='delete_auction.do?reg_idx=${ vo.reg_idx}';"><br><br>
-                <br>
-                <h3>입찰 방식</h3>
-                <br>
-                <table class="table">
-                    <tr class="info">
-                        <th>버튼</th>
-                        <th>직접입력</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" class="btn btn-success" value="100원" onclick="bidding_auction_button('100');"><br><br>
-                            <input type="button" class="btn btn-success" value="500원" onclick="bidding_auction_button('500');"><br><br>
-                            <input type="button" class="btn btn-success" value="1000원" onclick="bidding_auction_button('1000');"><br><br>
-                            <input type="button" class="btn btn-success" value="5000원" onclick="bidding_auction_button('5000');"><br><br>
-                        </td>
-                         <td>
-                            <input id="bidding_point" class="form-control">
-		       				<input type="button" class="btn btn-danger" value="응찰" onclick="bidding_auction(${ vo.reg_idx });">
-                        </td>
-
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
     </c:forEach>
 				<!-- 충전하실 금액 : <input id="charge_point" class="form-control">
 		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();"> -->
