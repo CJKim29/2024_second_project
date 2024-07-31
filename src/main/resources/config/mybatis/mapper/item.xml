@@ -87,6 +87,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<if test="search_text!=null">
 					or option9 like '%' || #{ search_text } || '%'
 				</if>
+				<if test="search_text!=null">
+					or option10 like '%' || #{ search_text } || '%'
+				</if>
 			</trim>
 		</select>
 

@@ -11,7 +11,7 @@ public interface RegItemDao {
 
 	List<RegItemVo> selectOneReg(int reg_idx);
 
-	List<RegItemVo> updateIncBiddingPoint(int bidding_point);
+	int updateIncBiddingPoint(int bidding_point, int reg_idx);
 	
 	List<RegItemVo> updateIncBiddingPointButton(int bidding_point_button);
 
@@ -26,6 +26,8 @@ public interface RegItemDao {
 	List<RegItemVo> selectListFromGrade(String grade);
 	List<RegItemVo> selectListCondition(Map<String, Object> map);
 	List<RegItemVo> selectListSearch(Map<String, String> map);
+
 	int updateIncBiddingPoint(int bidding_point, int reg_idx);
+
 
 }

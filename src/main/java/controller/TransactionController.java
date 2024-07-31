@@ -164,7 +164,7 @@ public class TransactionController {
 	
 	@RequestMapping("bidding_auction.do")
     public String bidding_auction(@RequestParam int bidding_point, @RequestParam int reg_idx) {
-        
+
         int res = regitem_dao.updateIncBiddingPoint(bidding_point, reg_idx);
         
         return "redirect:auction_list.do?reg_idx=" + reg_idx;
