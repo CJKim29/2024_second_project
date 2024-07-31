@@ -9,6 +9,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reg_item
 	</select>
 	
+	<!-- paging 별 조회 -->
+	<select id="reg_item_page_list" parameterType="Map" resultType="regitem"> 	
+		select * from 
+		(
+		select
+			rank() over(order by reg_idx desc) as no,
+			r.* 
+		from 
+			(select * from reg_item) r
+		)	
+		where no between #{ start } and #{ end }
+	</select>
+	
 	<select id="reg_item_idx_list" parameterType="int" resultType="regitem">
 		select * from reg_item where reg_idx=#{ reg_idx }
 	</select>
@@ -36,4 +49,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         set auction_price = auction_price + #{ bidding_point_button }
         <!-- where mem_id = #{ mem_id } -->
     </update>
+    
+    <delete id="deleteRegItem" parameterType="int">
+    	delete from reg_item where reg_idx = #{ reg_idx }
+    </delete>
+    
+    <!-- 전체레코드수 구하기 -->
+    <select id="reg_item_row_total" resultType="int">
+    	select nvl(count(*),0) from reg_item
+    </select>
 </mapper>

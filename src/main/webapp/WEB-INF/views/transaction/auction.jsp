@@ -15,7 +15,7 @@
 
 <style type="text/css">
 .table{
-	width: 200px;
+	width: 500px;
 }
 </style>
 
@@ -31,6 +31,29 @@
 	        data: {
 	            "transaction_point": transaction_point,
 	            "mem_idx": mem_idx
+	        },
+	        dataType: "json",
+	        success: function(response) {
+	            $("#user_name").text(response.mem_name);
+	            $("#user_point").text(response.mem_point);
+	        },
+	        error: function(err) {
+	            alert("에러: " + err.responseText);
+	        }
+	    });
+	}//end:transaction()
+	
+	function finish_auction(reg_idx) {
+	    const auction_point = $("#auction_point").val();
+	    const mem_idx = ${user.mem_idx};
+	
+	    $.ajax({
+	        url: "delete_auction.do",
+	        type: "POST",
+	        data: {
+	            "auction_point": auction_point,
+	            "mem_idx": mem_idx,
+	            "reg_idx": reg_idx
 	        },
 	        dataType: "json",
 	        success: function(response) {
@@ -166,7 +189,9 @@
             <td>${ vo.reg_date }</td>
             <td>${ vo.reg_date }</td>
             <td>
-                <input id="auction_point" class="form-control" value="${ vo.auction_price }">
+            	
+                낙찰누적금액<input id="auction_point" class="form-control" value="${ vo.auction_price }">
+                	<input type="button" class="btn btn-success" value="낙찰" onclick="location.href='delete_auction.do?reg_idx=${ vo.reg_idx}';"><br><br>
                 <br>
                 <h3>입찰 방식</h3>
                 <br>
