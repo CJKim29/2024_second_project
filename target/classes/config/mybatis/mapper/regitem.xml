@@ -72,7 +72,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where reg_idx = #{ reg_idx }
     </update>
 
-	
 	<select id="regitem_list_condition" parameterType="Map" resultType="regitem">
 		select * from reg_item
 	<trim prefix="where" prefixOverrides="and | or">
