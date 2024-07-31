@@ -109,6 +109,7 @@ a:hover{
 	/* margin-top: -10px; */
 	margin-left: 230px;
 }
+
 /* header_end */
 
 /* 버튼 기본 속성 제거 + 커스텀 */
@@ -165,17 +166,17 @@ a:hover{
 	margin-right: 80px;
 	/* margin-bottom: 100px; */
 	color: #999 !important;
-	font-size: 20px;
+	font-size: 17px;
 }
 .item_content2{
 	display: inline-block;
-/* 	width: 400px;
-	height: 300px; */
+	width: 400px;
+	height: 300px;
 	vertical-align: middle;
 	padding-left: 20px;
 	/* margin-bottom: 100px; */
 	color: #999;
-	font-size: 20px;
+	font-size: 17px;
 }
 
 hr{

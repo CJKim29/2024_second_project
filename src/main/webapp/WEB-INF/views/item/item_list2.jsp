@@ -43,7 +43,7 @@
 						<img src="../resources/images/cc-category-titlepin.png" style="height: 11px; width: 11px;">
 					</div>
 					<div class="mypage-image2">
-						<img src="../resources/images/cc-category-titleline.png" style="width: 200px;">
+						<img src="../resources/images/cc-category-titleline.png" style="width: 230px;">
 					</div>
 					<div class="mypage-image3">
 						<img src="../resources/images/cc-category-titlepin.png" style="height: 11px; width: 11px;">
