@@ -135,6 +135,16 @@ public class TransactionController {
 	}
 
 	
+	// 즉시구매, 낙찰(판매 종료시) 아이템 리스트에서 삭제
+	@RequestMapping("delete_auction.do")
+	public String delete_auction(int reg_idx) {
+		
+		int res	= regitem_dao.delete(reg_idx);
+		
+		return "redirect:../regitem/list.do";
+	}
+
+	
 	@RequestMapping(value = "transaction_charge.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> charge(@RequestParam("charge_point") int charge_point, 
@@ -153,15 +163,12 @@ public class TransactionController {
 	}
 	
 	@RequestMapping("bidding_auction.do")
-	public String bidding_auction(int bidding_point, Model model) {
+    public String bidding_auction(@RequestParam int bidding_point, @RequestParam int reg_idx) {
 		
-		List<RegItemVo> list = regitem_dao.updateIncBiddingPoint(bidding_point);
-		
-		//request binding
-		model.addAttribute("list", list);
-		
-		return "redirect:auction_list.do";
-	}
+        int res = regitem_dao.updateIncBiddingPoint(bidding_point, reg_idx);
+        
+        return "redirect:auction_list.do?reg_idx=" + reg_idx;
+    }
 
 	
 	@RequestMapping("bidding_auction_button.do")
