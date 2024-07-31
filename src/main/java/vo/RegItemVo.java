@@ -27,8 +27,7 @@ public class RegItemVo {
 	String	option10;
 	String	reg_mem_name;
 
-	
-	
+
 	public int getReg_idx() {
 		return reg_idx;
 	}
