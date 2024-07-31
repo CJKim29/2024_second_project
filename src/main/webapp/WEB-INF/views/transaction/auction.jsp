@@ -15,7 +15,7 @@
 
 <style type="text/css">
 .table{
-	width: 200px;
+	width: 500px;
 }
 </style>
 

@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class RegItemDaoImpl implements RegItemDao {
 	public List<RegItemVo> selectList() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("regitem.reg_item_list");
+	}
+	@Override
+	public List<RegItemVo> selectList(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("regitem.reg_item_page_list", map);
 	}
 	@Override
 	public List<RegItemVo> selectOneReg(int reg_idx) {
@@ -53,6 +59,11 @@ public class RegItemDaoImpl implements RegItemDao {
 	public int delete(int reg_idx) {
 		// TODO Auto-generated method stub
 		return sqlSession.delete("regitem.deleteRegItem", reg_idx);
+	}
+	@Override
+	public int selectRowTotal() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("regitem.reg_item_row_total");
 	}
 
 }

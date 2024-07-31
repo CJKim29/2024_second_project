@@ -25,6 +25,7 @@ public class RegItemVo {
 	String	option8;
 	String	option9;
 	String	option10;
+	String	reg_mem_name;
 	
 	
 	public int getReg_idx() {
@@ -164,5 +165,11 @@ public class RegItemVo {
 	}
 	public void setOption10(String option10) {
 		this.option10 = option10;
+	}
+	public String getReg_mem_name() {
+		return reg_mem_name;
+	}
+	public void setReg_mem_name(String reg_mem_name) {
+		this.reg_mem_name = reg_mem_name;
 	}
 }

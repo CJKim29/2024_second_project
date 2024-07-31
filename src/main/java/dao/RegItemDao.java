@@ -1,12 +1,13 @@
 package dao;
 
 import java.util.List;
-
+import java.util.Map;
 
 import vo.RegItemVo;
 
 public interface RegItemDao {
     List<RegItemVo> selectList();
+    List<RegItemVo> selectList(Map<String, Object> map);
 
 	List<RegItemVo> selectOneReg(int reg_idx);
 
@@ -19,4 +20,6 @@ public interface RegItemDao {
 	RegItemVo selectOneRegItem(int reg_idx);
 
 	int delete(int reg_idx);
+	int selectRowTotal();
+
 }
