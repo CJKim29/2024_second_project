@@ -66,23 +66,16 @@
 	    });
 	}//end:transaction()
 
-	function bidding_auction() {
-		
-		const bidding_point = $("#bidding_point").val();
-		
-		$.ajax({
-			url		:	"bidding_auction.do",
-			data	:	{"bidding_point":bidding_point,"mem_idx":"${ user.mem_idx }"},
-			success	:	function(res_data){
-				
-				location.reload(); // 페이지를 새로고침
-			},
-			error	:	function(err){
-				alert(err.responseText)
-			}
-		});
-	}//end:bidding_auction()
+	function bidding_auction(reg_idx) {
+	    var bidding_point = document.getElementById("bidding_point").value;
 	
+	    if (bidding_point != null && bidding_point !== "") {
+	        window.location.href = 'bidding_auction.do?bidding_point=' + bidding_point + '&reg_idx=' + reg_idx;
+	    } else {
+	        alert("입찰할 금액을 입력하세요.");
+	    }
+	}//end:bidding_auction()
+		
 	function bidding_auction_button(buttonValue) {
 		
 		const bidding_point_button = buttonValue;
@@ -209,7 +202,7 @@
                         </td>
                          <td>
                             <input id="bidding_point" class="form-control">
-		       				<input type="button" class="btn btn-danger" value="응찰" onclick="bidding_auction();">
+		       				<input type="button" class="btn btn-danger" value="응찰" onclick="bidding_auction(${ vo.reg_idx });">
                         </td>
 
                     </tr>

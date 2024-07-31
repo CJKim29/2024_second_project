@@ -163,15 +163,12 @@ public class TransactionController {
 	}
 	
 	@RequestMapping("bidding_auction.do")
-	public String bidding_auction(int bidding_point, Model model) {
+    public String bidding_auction(@RequestParam int bidding_point, @RequestParam int reg_idx) {
 		
-		List<RegItemVo> list = regitem_dao.updateIncBiddingPoint(bidding_point);
-		
-		//request binding
-		model.addAttribute("list", list);
-		
-		return "redirect:auction_list.do";
-	}
+        int res = regitem_dao.updateIncBiddingPoint(bidding_point, reg_idx);
+        
+        return "redirect:auction_list.do?reg_idx=" + reg_idx;
+    }
 
 	
 	@RequestMapping("bidding_auction_button.do")

@@ -29,12 +29,8 @@
  		option7			varchar2(200),		-- 옵션7
  		option8			varchar2(200),		-- 옵션8
  		option9			varchar2(200),		-- 옵션9
-
  		option10		varchar2(200),		-- 옵션10
  		reg_mem_name	varchar2(200)		-- 판매등록자
-
- 		option10		varchar2(200)		-- 옵션10
-
 	)
 	
 	select * from reg_item

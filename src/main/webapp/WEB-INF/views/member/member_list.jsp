@@ -130,6 +130,7 @@
 				<th>채팅</th>
 				<th>거래</th>
 				<th>아이템</th>
+				<th>충전</th>
 			</tr>
 
 		<!-- 데이터 있을 경우 -->
@@ -164,6 +165,10 @@
 					<td>
 						<input class="btn btn-success" type="button" value="아이템" 
 						onclick="location.href='../item/list.do'">
+					</td>
+					<td>
+						<input class="btn btn-success" type="button" value="충전" 
+						onclick="location.href='../charge_page/list.do'">
 					</td>
 				</tr>
 			</c:forEach>

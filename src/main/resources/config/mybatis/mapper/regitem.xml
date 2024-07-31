@@ -60,11 +60,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 직접입력 방식 bidding_point 업데이트 -->
-    <update id="bidding_point" parameterType="int">
-        update reg_item 
-        set auction_price = auction_price + #{ bidding_point }
-        <!-- where reg_idx = #{ reg_idx } -->
-    </update>
+    <update id="bidding_point" parameterType="map">
+    	update reg_item 
+    	set auction_price = auction_price + #{ bidding_point }
+    	where reg_idx = #{ reg_idx }
+	</update>
     
     <!-- 버튼 방식 bidding_point 업데이트 -->
     <update id="bidding_point_button">
