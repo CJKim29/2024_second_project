@@ -15,8 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(
 		select
 			rank() over(order by reg_idx desc) as no,
-			r.* ,
-			(reg_date + reg_period) as end_date
+			r.* 
 		from 
 			(select * from reg_item) r
 		)	
@@ -24,12 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="reg_item_idx_list" parameterType="int" resultType="regitem">
-		select
-			r.*,
-			(reg_date + reg_period) as end_date
-		from
-			(select * from reg_item) r
-		where reg_idx=#{ reg_idx } 
+		select * from reg_item where reg_idx=#{ reg_idx }
 	</select>
     
     <!-- 경매시 화면 새로고침 -->
@@ -49,29 +43,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="reg_item_list_grade" parameterType="String" resultType="regitem">
 		select * from reg_item where grade = #{ grade } order by reg_idx
 	</select>
-
-	
-	<select id="regitem_list_condition" parameterType="Map" resultType="regitem">
-		select * from reg_item
-	<trim prefix="where" prefixOverrides="and | or">
-		<!-- 무기 검색 -->
-      <if test="category != null and category != 'all'">
-         category = #{category}
-      </if>
-      <!-- 등급 검색 -->
-      <if test="grade != null and grade != 'all'">
-         and grade = #{grade}
-      </if>
-	   </trim>
-	   order by reg_idx
-	</select>
-	
-	<update id="bidding_point" parameterType="map">
-        update reg_item 
-        set auction_price = auction_price + #{ bidding_point }
-        where reg_idx = #{ reg_idx }
-    </update>
-
 	
 	<select id="regitem_list_condition" parameterType="Map" resultType="regitem">
 		select * from reg_item
@@ -89,12 +60,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 직접입력 방식 bidding_point 업데이트 -->
-    <update id="bidding_point" parameterType="map">
-    	update reg_item 
-    	set auction_price = auction_price + #{ bidding_point }
-    	where reg_idx = #{ reg_idx }
-	</update>
-
+    <update id="bidding_point" parameterType="int">
+        update reg_item 
+        set auction_price = auction_price + #{ bidding_point }
+        <!-- where reg_idx = #{ reg_idx } -->
+    </update>
     
     <!-- 버튼 방식 bidding_point 업데이트 -->
     <update id="bidding_point_button">
