@@ -14,11 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../resources/css/regitem.css">
-<style type="text/css">
-.table{
-    width: 1300px;
-}
-</style>
+
 <script type="text/javascript">
     
     function buy(reg_idx) {
@@ -32,6 +28,60 @@
 </script>
 </head>
 <body>
+
+
+<div id="gong"><span>경매 현황</span></div>
+<div id="box">
+<form class="form-inline">
+	<input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">
+
+	<table class="table">
+			<tr style="background: #131319; height: 50px;">
+				<th style="padding-left: 100px;">아이템</th>
+				<th style="padding: 8px 0 8px 60px;">아이템명</th>
+				<th style="padding: 8px 0 8px 60px;">아이템옵션</th>
+				
+				<th style="padding-left: 230px;">거래정보</th>		
+			</tr>
+			
+			<c:forEach var="vo" items="${ list }">
+				<tr>
+					<td>
+						<div class="item_image">
+								<img src="../resources/images/${ vo.filename }">
+							</div>
+						</td>
+					<td>${ vo.reg_name }</td>
+					<td>
+						<div class="item_content1">
+							  <br>
+					          카테고리 : ${ vo.category }<br>
+					          ${ vo.grade }<br><br>
+					          ${ vo.intrinsic }<br>
+					          ${ vo.durability }<br>
+					          ${ vo.req_lev }<br>
+					          ${ vo.req_str }<br>
+					          ${ vo.req_dex }<br>
+					          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+					    </div>
+					    <div class="item_content2">
+					          ${ vo.option1 }<br>
+					          ${ vo.option2 }<br>
+					          ${ vo.option3 }<br>
+					          ${ vo.option4 }<br>
+					          ${ vo.option5 }<br>
+					          ${ vo.option6 }<br>
+					          ${ vo.option7 }<br>
+					          ${ vo.option8 }<br>
+					          ${ vo.option9 }<br>
+					          ${ vo.option10 }<br>
+					    </div>
+					</td>
+					
+					
+					<td>
+						<!-- 거래회원 정보 기입란 -->
+
 <div id="box">
 <form class="form-inline">
     <input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">
@@ -82,6 +132,7 @@
                     
                     <td>
                         <!-- 거래회원 정보 기입란 -->
+
             <div id="item_sell">
                 <div id="usercard-text">
                     <span class="usercard-text"><span>기본정보</span> 💡 ONLINE</span>
@@ -104,7 +155,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="item_clock2">${ fn:substring(vo.reg_date,0,19) }</span><br>
                     <span class="item_clock">종료예정</span>
-                    <span class="item_clock2">2024-08-02 09:24:14</span>
+                    <span class="item_clock2">${ fn:substring(vo.end_date,0,19) }</span>
                 </div>
                 <hr>
                 <div id="usercard-text2">
@@ -149,6 +200,14 @@
                    <input id="btn1" type="button" value="즉시구매" onclick="buy('${vo.reg_idx}');">
                     <input id="btn2" type="button" value="입찰하기" onclick="auction('${vo.reg_idx}');">
                 </div>
+
+            </div>	
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+
+
             </div>    
                     </td>
                 </tr>
@@ -158,6 +217,7 @@
         <div style="text-align: center; margin-top: 30px; font-size:15px; ">
             ${ pageMenu }
         </div>
+
 </form>
 </div>
 

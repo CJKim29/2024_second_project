@@ -8,6 +8,8 @@ public class RegItemVo {
 	int		reg_price;
 	int		auction_price;
 	String	reg_date;
+	int		reg_period;
+	String  end_date;	// vo에만 추가 (종료시간 출력 용)
 	String	category;
 	String	grade;
 	String	intrinsic;
@@ -63,6 +65,19 @@ public class RegItemVo {
 	}
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
+	}
+	public int getReg_period() {
+		return reg_period;
+	}
+	public void setReg_period(int reg_period) {
+		this.reg_period = reg_period;
+	}
+	
+	public String getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(String end_date) {
+		this.end_date = end_date;
 	}
 	public String getCategory() {
 		return category;
