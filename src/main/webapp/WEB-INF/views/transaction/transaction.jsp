@@ -20,9 +20,16 @@
 
 <script type="text/javascript">
 	
+	const user_mem_point = ${ user.mem_point };
+	
 	function transaction() {
 	    const transaction_point = $("#transaction_point").val();
 	    const mem_idx = ${user.mem_idx};
+	    
+	    if (transaction_point > user_mem_point) {
+            alert("금액이 부족합니다.");
+            return;
+        }
 	
 	    $.ajax({
 	        url: "transaction.do",
