@@ -59,7 +59,7 @@
 	    	  ${ vo.name }
 	          <%-- ${ vo.category } --%>
 	          ${ vo.grade }
-	          ${vo.intrinsic}
+	          ${ vo.intrinsic }
 	          ${ vo.durability }
 	          ${ vo.req_lev }
 	          ${ vo.req_str }

@@ -9,6 +9,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reg_item
 	</select>
 	
+	<!-- paging 별 조회 -->
+	<select id="reg_item_page_list" parameterType="Map" resultType="regitem"> 	
+		select * from 
+		(
+		select
+			rank() over(order by reg_idx desc) as no,
+			r.* 
+		from 
+			(select * from reg_item) r
+		)	
+		where no between #{ start } and #{ end }
+	</select>
+	
 	<select id="reg_item_idx_list" parameterType="int" resultType="regitem">
 		select * from reg_item where reg_idx=#{ reg_idx }
 	</select>
@@ -22,6 +35,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectOneRegItem" parameterType="int" resultType="vo.RegItemVo">
         select * from reg_item where reg_idx = #{reg_idx}
     </select>
+    
+    <select id="reg_item_list_category" parameterType="String" resultType="regitem">
+		select * from reg_item where category = #{ category } order by reg_idx
+	</select>
+	
+	<select id="reg_item_list_grade" parameterType="String" resultType="regitem">
+		select * from reg_item where grade = #{ grade } order by reg_idx
+	</select>
+	
+	<select id="regitem_list_condition" parameterType="Map" resultType="regitem">
+		select * from reg_item
+	<trim prefix="where" prefixOverrides="and | or">
+		<!-- 무기 검색 -->
+      <if test="category != null and category != 'all'">
+         category = #{category}
+      </if>
+      <!-- 등급 검색 -->
+      <if test="grade != null and grade != 'all'">
+         and grade = #{grade}
+      </if>
+	   </trim>
+	   order by reg_idx
+	</select>
 	
 	<!-- 직접입력 방식 bidding_point 업데이트 -->
     <update id="bidding_point" parameterType="int">
@@ -36,4 +72,62 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         set auction_price = auction_price + #{ bidding_point_button }
         <!-- where mem_id = #{ mem_id } -->
     </update>
+    
+    <delete id="deleteRegItem" parameterType="int">
+    	delete from reg_item where reg_idx = #{ reg_idx }
+    </delete>
+    
+
+    <select id="reg_item_row_total" resultType="int">
+    	select nvl(count(*),0) from reg_item
+    </select>
+    
+    <!-- 검색조건별 조회 -->
+		<select id="regitem_list_search" parameterType="Map" resultType="regitem">
+			select * from reg_item
+			
+			<!-- Dynamic Query: 조건별 Query -->
+			<trim prefix="where" prefixOverrides="or">
+				<if test="search_text!=null">
+					category like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or grade like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or reg_name like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option1 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option2 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option3 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option4 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option5 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option6 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option7 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option8 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option9 like '%' || #{ search_text } || '%'
+				</if>
+				<if test="search_text!=null">
+					or option10 like '%' || #{ search_text } || '%'
+				</if>
+			</trim>
+		</select>
+    
 </mapper>
