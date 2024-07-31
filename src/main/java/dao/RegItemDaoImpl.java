@@ -65,5 +65,25 @@ public class RegItemDaoImpl implements RegItemDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("regitem.reg_item_row_total");
 	}
+	@Override
+	public List<RegItemVo> selectListFromCategory(String category) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("regitem.reg_item_list_category", category);
+	}
+	@Override
+	public List<RegItemVo> selectListFromGrade(String grade) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("regitem.reg_item_list_grade", grade);
+	}
+	@Override
+	public List<RegItemVo> selectListCondition(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("regitem.regitem_list_condition" , map);
+	}
+	@Override
+	public List<RegItemVo> selectListSearch(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("regitem.regitem_list_search", map);
+	}
 
 }

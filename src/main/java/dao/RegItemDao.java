@@ -21,5 +21,10 @@ public interface RegItemDao {
 
 	int delete(int reg_idx);
 	int selectRowTotal();
+	
+	List<RegItemVo> selectListFromCategory(String category);
+	List<RegItemVo> selectListFromGrade(String grade);
+	List<RegItemVo> selectListCondition(Map<String, Object> map);
+	List<RegItemVo> selectListSearch(Map<String, String> map);
 
 }
