@@ -27,7 +27,7 @@ public interface RegItemDao {
 	List<RegItemVo> selectListCondition(Map<String, Object> map);
 	List<RegItemVo> selectListSearch(Map<String, String> map);
 
-	int updateIncBiddingPoint(int bidding_point, int reg_idx);
+	
 
 
 }
