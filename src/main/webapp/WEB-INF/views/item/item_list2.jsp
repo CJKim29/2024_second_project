@@ -59,6 +59,30 @@
 		<div class="item_image">
 	       <img src="../resources/images/${ vo.filename }">
 	    </div>
+<<<<<<< HEAD
+	    <div class="item_content">
+	    	  ${ vo.name }
+	          <%-- ${ vo.category } --%>
+	          ${ vo.grade }
+	          ${ vo.intrinsic }
+	          ${ vo.durability }
+	          ${ vo.req_lev }
+	          ${ vo.req_str }
+	          ${ vo.req_dex }
+	          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
+	    </div>
+	    <div class="item_content">
+	          ${ vo.option1 }
+	          ${ vo.option2 }
+	          ${ vo.option3 }
+	          ${ vo.option4 }
+	          ${ vo.option5 }
+	          ${ vo.option6 }
+	          ${ vo.option7 }
+	          ${ vo.option8 }
+	          ${ vo.option9 }
+	    </div>
+=======
 	
 	    <span class="line"></span>	<!-- 구분선 -->
 	    <!-- 아이템 설명 -->
@@ -75,6 +99,7 @@
 		          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
 		    </div>
 		</div>
+>>>>>>> refs/heads/YS
 	    
 	    <span class="line2"></span>	<!-- 구분선2 -->
 	    
