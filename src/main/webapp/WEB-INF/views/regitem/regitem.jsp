@@ -32,8 +32,6 @@
 
 </head>
 <body>
-
-<div id="gong"><span>경매 현황</span></div>
 <div id="box">
 <form class="form-inline">
 	<input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">

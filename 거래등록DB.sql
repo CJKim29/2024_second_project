@@ -33,10 +33,8 @@
 
  		option10		varchar2(200),		-- 옵션10
  		reg_mem_name	varchar2(200)		-- 판매등록자
-
- 		option10		varchar2(200)		-- 옵션10
-
 	)
+ 		option10		varchar2(200)		-- 옵션10
 	
 	select * from reg_item
 	
@@ -192,6 +190,8 @@
 	from
 		(select * from reg_item) r
 	where reg_idx=1   
+	
+	
 	
 	
 	
