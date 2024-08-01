@@ -1,14 +1,4 @@
 @charset "UTF-8";
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
-* {
-	font-family: 'Pretendard-Regular';
-}
 ul{
 	list-style: none;
 }
@@ -91,17 +81,19 @@ ul{
 #branch-menu>ul>li>a:hover{
 	color: #b89971;
 }
-#branch-menu>ul>li>a:focus{
-	color: #b89971;
+.selected1{
+	background-color: #171a1e !important;
 }
-.selected{
-	background-color: #171a1e;
+.selected2{
+	color: #b89971 !important;
 }
+
 #branch-contents{
 	flex: 1;
 	padding: 10px 0 25px;
 	background-color: #1c1e24;
 	border-radius: 7px;
+	margin-bottom: 60px;
 }
 #profile{
 	margin: 27px 27px 0; 
@@ -163,18 +155,35 @@ ul{
 #final>li{
 	border-bottom: 1px solid hsla(0,0%,100%,0.03);
 }
-#modify-btn{
+#delete-btn{
 	background-color: #2B2E36;
 	color: #8C8D8A;
 	border: 0;
-	width: 300px;
+	width: 200px;
 	height: 40px;
 	border-radius: 5px;
 	margin-top: 25px;
-	margin-left: 33%;
+	margin-left: 40%;
 	font-weight: bold;
+	display: inline-block;
+}
+#modify-btn{
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #8d795c;
+	border: 1px solid #8d795c;;
+	width: 88px;
+	height: 29px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-left: 83%;
+	font-size:15px;
+	font-weight:800;
+	display: inline-block;
 }
 #modify-btn:hover{
+	color: #f4f4f4;
+}
+#delete-btn:hover{
 	background-color: #555b6a;
 	color: #cacbc9;
 }

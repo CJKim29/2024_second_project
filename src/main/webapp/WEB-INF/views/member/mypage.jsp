@@ -13,26 +13,32 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../resources/css/member/main.css">
-<link rel="stylesheet" href="../resources/css/member/mypage.css">
 
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-	    $("#branch-menu>ul>li").each(function () {
-	        $(this).click(function () {
-	            $(this).addClass("selected");                      
-	            $(this).siblings().removeClass("selected");  
-	        });
-	    });
-	});
+<link rel="stylesheet" href="../resources/css/member/mypage.css">
+<link rel="stylesheet" href="../resources/css/main.css">
 
+<script type="text/javascript">
+
+	// del에 삭제할 idx 넘기기 
+	function del(mem_idx){
+		
+		// console.log(mem_idx,"삭제"); -> 정보 전달 되는지 확인
+		
+		if(confirm('정말 삭제하시겠습니까?')==false) return;
+		
+		// 삭제 요청
+		location.href = "delete.do?mem_idx=" + mem_idx;		// MemberDeleteAction 만들기
+		// 제약 사항 걸기? 만약 회원목록에서 본인을 삭제한다면 로그인 해제 되어야 함
+		// 로그인(본인 수정/삭제 가능) -> 삭제 -> 본인 정보가 없느 ㄴ상황인데 로그인 되어 있는건 이상..-> 로그인 해제 시키기
+		// 관리자는 본인 삭제 못하게 해야 함 -> 프로그램 최고 권한 관리자가 삭제 될 필요는 없으니까
+		
+	}
 
 </script>
-
 
 </head>
 
@@ -59,30 +65,33 @@
 	                <!-- 로그인 안되었을 때 session ~~ -->
 	                <!-- <c:if test="${ empty sessionScope.user }"> -->
 	                <div class="login-icon">
-	                    <a style="cursor: pointer;" href="#"> 
+	                    <a style="cursor: pointer;" href="../member/login_form.do"> 
 	                        <!-- <img src="../image/user_icon.png"> -->
 	                        <i class="user-circle"></i>
 	                        로그인
 	                    </a>                  
 	                </div>
-	                    <a href="#">회원가입</a>
-	                <!-- </c:if> -->
-	                <!-- 로그인 되었을 때 session 살리기~~ -->
-	                <!--  <c:if test="${ not empty sessionScope.user }">
-	                    <span id="user_ment">${ sessionScope.user.mem_nickname }님</span>
-	                로그아웃시 실행될 onclick 함수
-	                    <a id="logout" style="cursor:pointer;">로그아웃</a>
+	                    <a href="../member/insert_form.do">회원가입</a>
 	                </c:if>
-	                로그인 계정이 관리자일 경우 회원관리 버튼 생성
+	                <!-- 로그인 되었을 때 session 살리기~~ -->
+	                <c:if test="${ not empty sessionScope.user }">
+	                    <span id="user_ment">${ sessionScope.user.mem_name }님</span>
+	                <!-- 로그아웃시 실행될 onclick 함수 -->
+	                    <a id="logout" style="cursor:pointer;"
+	                    href="../member/logout.do">로그아웃</a>
+	                </c:if>
+	               <!-- 로그인 계정이 관리자일 경우 회원관리 버튼 생성 -->
 	                <c:if test="${ user.mem_grade eq '관리자' }">
 	                    <a href="../member/list.do">회원관리</a>
 	                </c:if>
 	                <c:if test="${ user.mem_grade eq '일반' }">
 	                    <a onclick="location.href='../member/modify_form.do?mem_idx=${user.mem_idx}'"
 	                     style="cursor:pointer;">내정보</a>
-	                </c:if> -->     
+	                </c:if>  
 	                &nbsp;
-	                <div class="updown"></div>
+	                <em id="piperline">
+        				|
+        			</em>
 	                &nbsp;
 	                <a href="#">채팅</a>
 	                <a id="who" onclick="blink();" style="cursor:pointer;">
@@ -116,7 +125,7 @@
 				      </li>
 				       <img src="../resources/images/category.png">
 				      <li class="dropdown header-tab-menu">
-				        <a href="#">
+				        <a href="../board/list.do">
 				        	<span>커뮤니티</span>
 				        </a>
 				      </li>
@@ -159,7 +168,7 @@
         		<em id="piperline">
         			|
         		</em>
-        		<span>마이페이지</span>
+        		<span>개인정보</span>
         		<div class="mypage-image1">
 	        		<img src="../resources/images/cc-category-titlepin.png" style="height: 11px; width: 11px;">
 	        	</div>
@@ -176,13 +185,13 @@
         		<div id="branch-menu">
         			<ul>
         				<li>
-        					<a href="#">
+        					<a href="mypage.do?mem_idx=${vo.mem_idx}">
         						<i class="fi fi-rr-user" style="padding-top: 2px;"></i>
         						개인정보
         					</a>
         				</li>
         				<li>
-        					<a href="#">
+        					<a href="list.do">
         						<i class="fi fi-tr-auction"></i>
         						나의 경매
         					</a>
@@ -196,15 +205,25 @@
         			</ul>
         		</div>
         	</div>
+        	
+        	
+        	
         	<div id="branch-contents">
+        	
         		<div id="profile">
         			<ul>
         				<li>
-        					<a>마이페이지</a>
+        					<a>개인정보</a>
         				</li>
+        				<input id="modify-btn" type="button" value="수정하기" onclick="location.href='modify_form.do?mem_idx=${vo.mem_idx}'">
         			</ul>
         		</div>
         		<!-- <hr id="hr1"> -->
+        		
+        		<form>
+        		<!-- 회원번호 안 보이게 전송 -->            <!-- 따옴표 하는건 맞음.. -->
+				<input type="hidden" name="mem_idx" value="${ vo.mem_idx }">
+				
         		<div id="tablebox">
         			<ul>
         				<li class="box-first">이미지</li>
@@ -220,9 +239,8 @@
         				<li class="box-first">이름</li>
         				<li class="li-value">
         					<strong>
-	        					${ vo.mem_id }
-	        					홍길동
-	        				</strong>
+        						${ vo.mem_name }
+        					</strong>	
         				</li>
         			</ul>
         			<ul>
@@ -261,16 +279,17 @@
         				<li class="box-first">주소</li>
         				<li class="li-value">
         					<strong>
-        						${ vo.mem_addr } 서울시 관악구 남부순환로 에그옐로우 14층 %%아파트 101동
+        						${ vo.mem_addr }
         					</strong>
         				</li>
         			</ul>
         		</div>
-        		<input id="modify-btn" type="button" value="수정하기" onclick="location.href='../member/modify_form.do'">
+        		<input id="delete-btn" type="button" value="회원탈퇴" onclick="del('${vo.mem_idx}');">
+        		</form>
         	</div>
         </div>
         
-        
+       
        
         
 		
@@ -305,5 +324,37 @@
         </div>
     </div><!-- end - footer 정환 -->
 
+<script type="text/javascript">
+	const anchorElements = document.querySelectorAll('#branch-menu > ul > li > a');
+	
+	anchorElements.forEach((anchor, index) => {
+	    anchor.addEventListener('click', () => {
+	        // 로컬 스토리지에 선택된 항목 저장
+	        localStorage.setItem('selectedMenuIndex', index);
+
+	        // 모든 li 요소에서 'selected' 클래스 제거
+	        anchorElements.forEach(a => a.parentElement.classList.remove('selected1'));
+	        anchorElements.forEach(a => a.classList.remove('selected2'));
+
+	        // 클릭된 a 태그의 부모 li 요소에 'selected' 클래스 추가
+	        anchor.parentElement.classList.add('selected1');
+	        anchor.classList.add('selected2');
+	    });
+	});
+
+	// 페이지 로드 시 로컬 스토리지에서 상태 복원
+	window.addEventListener('DOMContentLoaded', () => {
+	    const selectedIndex = localStorage.getItem('selectedMenuIndex');
+	    if (selectedIndex !== null) {
+	        const anchor = anchorElements[selectedIndex];
+	        if (anchor) {
+	        	anchorElements.forEach(a => a.parentElement.classList.remove('selected'));
+	        	anchorElements.forEach(a => a.classList.remove('selected2'));
+	            anchor.parentElement.classList.add('selected1');
+	            anchor.classList.add('selected2');
+	        }
+	    }
+	});
+</script>
 </body>
 </html>

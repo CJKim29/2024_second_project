@@ -274,8 +274,26 @@ public class MemberController {
 		return json.toString();
 	}
 	@RequestMapping("mypage.do")
-	public String mypage() {
+	public String mypage(int mem_idx, Model model) {
+
+		/*
+		 * int res = member_dao.update(vo); // Dao에 추가 -> DaoImpl에 추가 -> mapper에 sql문 추가
+		 * 
+		 * MemberVo loginUser = (MemberVo) session.getAttribute("user");
+		 * 
+		 * // 현재 수정 정보가 로그인한 유저일 경우에만 수정할 수 있게 처리
+		 * if(loginUser.getMem_idx()==vo.getMem_idx()) {
+		 * 
+		 * // 로그인 상태 정보 MemberVo user = member_dao.selectOne(vo.getMem_idx());
+		 * 
+		 * // session.removeAttribute("user"); -> 삭제 // scope내에 저장 방식 Map 형식 key/value
+		 * // 동일 key로 저장하면 수정 처리 됨 -> 삭제 안 해도 되는 이유 session.setAttribute("user", user);
+		 * 
+		 * return "member/mypage"; } return "redirect:../member/list.do";
+		 */
+		MemberVo vo = member_dao.selectOne(mem_idx);
 		
+		model.addAttribute("vo", vo);
 		return "member/mypage";
 	}
 	@RequestMapping("board_list.do")

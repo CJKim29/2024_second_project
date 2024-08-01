@@ -30,7 +30,7 @@
 	<!-- Autowired지원속성 : 수동생성시에는 반드시 기록  -->
 	<context:annotation-config/>
 	
-	
+	<context:component-scan base-package="dao" />
 	<context:component-scan base-package="controller" />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />

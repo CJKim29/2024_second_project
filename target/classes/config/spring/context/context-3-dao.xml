@@ -31,4 +31,10 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	<bean id="chatlist_dao" class="dao.ChatListDaoImpl">
 		<property name="sqlSession" ref="sqlSession"/>
 	</bean>
+	
+	<context:annotation-config/>
+	
+	<bean id="comment_dao" class="dao.CommentDaoImpl" autowire="default">
+			
+	</bean>
 </beans>

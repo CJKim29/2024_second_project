@@ -15,6 +15,8 @@
 		<typeAlias type="vo.ChatPageVo" alias="chat_page" />
 		<typeAlias type="vo.MemberVo" alias="member"/>
 		<typeAlias type="vo.ChatListVo" alias="chatlist"/>
+		<typeAlias type="vo.BoardVo" alias="board"/>
+		<typeAlias type="vo.CommentVo" alias="comment"/>
 	</typeAliases>
 	
 	
@@ -24,5 +26,7 @@
 		<mapper resource="config/mybatis/mapper/regitem.xml" />
 		<mapper resource="config/mybatis/mapper/chat_page.xml" />
 		<mapper resource="config/mybatis/mapper/member.xml" />
+		<mapper resource="config/mybatis/mapper/board.xml" />
+		<mapper resource="config/mybatis/mapper/comment.xml" />
 	</mappers>
 </configuration>

@@ -19,7 +19,7 @@ a{
     cursor: pointer;
 }
 a:hover{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 /* 다희 header */
 #header-box{
@@ -31,8 +31,7 @@ a:hover{
     position: relative;
     height: 165px;
     
-    background :#202126;
-    background-image: url("../images/deco_bg_2.png");
+    background :#202126 url("../images/deco_bg_2.png");
     overflow: hidden;
 }
 #header-img1 {
@@ -84,13 +83,15 @@ a:hover{
     font-weight: 500;
     
 }
-.updown {
-        position: absolute;
-        border: 0.1px solid #878788;
-        width: 0.1px;
-        height: 25px;
-        display: inline-block;
-    }
+#piperline{
+	opacity: .5;
+	margin-top: unset;
+    margin-bottom: unset;
+    margin:5px;
+    color: hsla(0,0%,100%,0.125);
+    font: inherit;
+    font-size: 19px;
+}
 #who a{
     position: absolute;
     display: inline-block;
@@ -124,7 +125,7 @@ a:hover{
     position: absolute;
     width: 100%;
     height: 57px;   
-    border-top: 1px solid #131319 !important;
+    border-top: 0.7px solid #292a2b;
     border-bottom: 1px solid #131319 !important;
     bottom: 0;
     
@@ -139,7 +140,7 @@ a:hover{
 }
 #header-tab-inside{
     display:flex;
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .1) !important;
     margin-left: 300px;
 }
 .container-fleid{
