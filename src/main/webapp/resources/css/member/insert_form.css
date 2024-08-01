@@ -9,10 +9,12 @@
     font-style: normal;
 }
 
+
+
 @font-face {
-    font-family: 'Freesentation-9Black';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
-    font-weight: 300;
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -22,7 +24,7 @@ body{
 }
 *{
 	color: #999999;
-	font-family: 'Freesentation-9Black';
+	font-family: 'Pretendard-Regular';
 	/* font-weight: 500; */
 	
 }
@@ -47,6 +49,7 @@ body{
 	
 }
 
+
 #box .form-group .form-group{
 	margin-bottom: 30px;
 }  
@@ -60,11 +63,13 @@ body{
 .text1{
 	margin-bottom: 10px;
 	font-size: 20px;
+	color: #ac8d5a;
 }
 
 .addr_text{
 	float:left;
 }
+
 .a_search{
 	background-color: #2B2E36;
 	width:25% !important;
@@ -73,7 +78,6 @@ body{
 	font-weight: bold;
 	margin-left: 20px;
 } 
-
 
 .form-group .text1 .addr_text .a_search:hover{
 	background-color: #2B2E36;
@@ -95,8 +99,19 @@ body{
 	color: #999 !important;
 	}
 	
+/* 자동완성 관련 커스텀 */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+	-webkit-text-fill-color: #999;		/* 글씨 색 */
+/*     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset; */
+    transition: background-color 5000s ease-in-out 0s;
+}	
 .btn:hover{
 	color: white !important;
+	border: 1px solid #ac8d5a !important;
 }
 
 input{

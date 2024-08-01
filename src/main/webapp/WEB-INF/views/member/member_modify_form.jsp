@@ -27,7 +27,7 @@
 	function find_addr(){
 		
 		var themeObj = {
-				   bgColor: "#B51D1D" //바탕 배경색
+				   bgColor: "#05142f" //바탕 배경색
 		   };
 	
 		new daum.Postcode({
@@ -100,22 +100,22 @@
 <!-- 닉네임 체크-->
 <script type="text/javascript">
 
-	function check_nickname(){
+function check_nickname(){
 	
 	$("#btn_register").prop("disabled", true);
 	
 	let mem_nickname = $("#mem_nickname").val();
-	let mem_nickname_check = /^[가-힣ㄱ-ㅎA-Za-z]{2,6}$/;
-	
-	if(mem_nickname.length==0) {
-	    $("#nickname_msg").html("");
-	    return;
-	}
-	
-	if(mem_nickname_check.test(mem_nickname)==false) {
-	    $("#nickname_msg").html("닉네임은 2~6자리 영문 한글만 사용가능합니다.").css("color","IndianRed");
-	    return;
-	}
+    let mem_nickname_check = /^[가-힣ㄱ-ㅎA-Za-z]{2,6}$/;
+    
+    if(mem_nickname.length==0) {
+        $("#nickname_msg").html("");
+        return;
+    }
+    
+    if(mem_nickname_check.test(mem_nickname)==false) {
+        $("#nickname_msg").html("닉네임은 2~6자리 영문 한글만 사용가능합니다.").css("color","IndianRed");
+        return;
+    }
 	
 	$.ajax({
 		url		:	"check_nickname.do",
@@ -133,7 +133,8 @@
 			alert("현재, 요청이 지연되고 있습니다.");
 		}
 	});
-	}// end:check_nickname()
+}// end:check_nickname()
+
 
 </script>
 
@@ -218,6 +219,7 @@
 	<div class="form-group form-group-lg">
 	
 	<!-- 프로필 사진 영역 -->
+	<div class="profile_wrap">
 		<div class="profile">
 			<img class="profile_img" src="../resources/images/${ vo.mem_filename }" id="my_img">
 		</div>
@@ -229,6 +231,7 @@
 			<input type="file" name="uploadImg" id="input_img" accept="image/*">
 			<input type="button" value="변경하기" onclick="send_file(this.form);">
 		</div> -->
+	</div>
 	
 	
 	

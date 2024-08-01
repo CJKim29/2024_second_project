@@ -95,37 +95,5 @@
       </c:forEach>
 </div>
 
-
-
-<div id="footer">
-    <div id="footer-tab">
-        <div class="footer-tab-menu">
-            <span><a href="#">카오스큐브</a>&emsp;&emsp;|</span>
-            <span>&emsp;&emsp;<a href="#">제휴문의</a>&emsp;&emsp;|</span>
-            <span>&emsp;&emsp;<a href="#">이용약관</a>&emsp;&emsp;|</span>
-            <span>&emsp;&emsp;<a href="#">개인정보 처리방침</a>&emsp;&emsp;|</span>
-            <span>&emsp;&emsp;<a href="#">청소년 보호정책</a>&emsp;</span>
-            
-            <!-- 토글메뉴넣기  -->
-            <select>                  
-                <option>가이드</option>
-                <option>cp란 무엇인가?</option>
-                <option>cp거래 시 유의사항</option>
-                <option>cp 거래완료 안내</option>
-                <option>경험치/cp 획득</option>
-            </select>
-            <select>                  
-                <option>안전거래 서비스</option>
-                <option>안전거래 주의사항</option>
-                <option>더치트 전화번호 조회</option>
-                <option>사기 유형 및 대처법</option>
-                <option>사이버 수사대</option>
-            </select>                         
-        </div>        
-    </div>
-    <hr>
-    </div>
-<!-- end - footer 정환 -->
-
 </body>
 </html>

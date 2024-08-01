@@ -10,9 +10,9 @@
 }
 
 @font-face {
-    font-family: 'Freesentation-9Black';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
-    font-weight: 300;
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -21,7 +21,7 @@ body{
 }
 *{
 	color: #999999;
-	font-family: 'Freesentation-9Black';
+	font-family: 'Pretendard-Regular';
 	/* font-weight: 500; */
 	
 }
@@ -36,8 +36,20 @@ body{
    }
    
 .sujeong{
-	font-size: 50px;
+	font-size: 40px;
 	text-align: center;
+	font-weight: bold;
+	color: #ac8d5a;
+	margin: 30px;
+}
+
+.profile_wrap{
+	text-align: center;
+	border: 1px double #2D2F35;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 30px;
+	
 }
 
 .profile{	
@@ -51,20 +63,7 @@ body{
 	/* position: absolute; */
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .profile_img{
-/* 	display: inline-block !important;
-	text-align: center !important; */
 	max-width: 200px;
 	max-height: 200px;
 	justify-content: center;
@@ -72,29 +71,14 @@ body{
 .profile_btn{
 	margin-top : 10px;
 	margin-bottom: 10px;
-	background-color: #2B2E36;
-	width:40% !important;
-	height: 47px;
-	font-size: 17px !important;
-	font-weight: bold;
 }
 
-.profile_btn:hover{
-	background-color: #2B2E36;
-	width:40% !important;
-	height: 47px;
-	font-size: 17px !important;
-	font-weight: bold;
-	
-	background-image: rgba(0,0,0,.4) !important;
-	color: white !important;
-} 
+
 .membership-btn input{
 	font-weight: bold;
 	/* border: 1px solid #2d2f35; */
 	margin-top: 50px;
 	margin-bottom: 30px;
-	
 }
 
 #box .form-group .form-group{
@@ -110,6 +94,7 @@ body{
 .text1{
 	margin-bottom: 10px;
 	font-size: 20px;
+	color: #ac8d5a;
 }
 
 .id_msg{
@@ -150,8 +135,20 @@ body{
 	color: #999 !important;
 }
 
+/* 자동완성 관련 커스텀 */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+	-webkit-text-fill-color: #999;		/* 글씨 색 */
+/*     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset; */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 .btn:hover{
 	color: white !important;
+	border: 1px solid #ac8d5a !important;
 }
 
 input{

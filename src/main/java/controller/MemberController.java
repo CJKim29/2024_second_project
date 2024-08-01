@@ -113,6 +113,7 @@ public class MemberController {
 		return "redirect:login_form.do";   // 회원 가입 후 로그인창으로 이동
 	}
 	
+	
 	// 로그인 폼 띄우기
 	// class RequestMapping + metode RequestMapping => /member/ + login_form.do
 	@RequestMapping("login_form.do")
