@@ -37,11 +37,6 @@ public class RegItemDaoImpl implements RegItemDao {
 		return sqlSession.selectList("regitem.reg_item_idx_list", reg_idx);
 	}
 	@Override
-	public List<RegItemVo> updateIncBiddingPoint(int bidding_point) {
-		// TODO Auto-generated method stub
-		return sqlSession.selectList("regitem.bidding_point", bidding_point);
-	}
-	@Override
 	public List<RegItemVo> updateIncBiddingPointButton(int bidding_point_button) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("regitem.bidding_point_button", bidding_point_button);
@@ -86,6 +81,7 @@ public class RegItemDaoImpl implements RegItemDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("regitem.regitem_list_search", map);
 	}
+
 	@Override
     public int updateIncBiddingPoint(int bidding_point, int reg_idx) {
         Map<String, Integer> params = new HashMap<>();
@@ -93,5 +89,6 @@ public class RegItemDaoImpl implements RegItemDao {
         params.put("reg_idx", reg_idx);
         return sqlSession.update("regitem.bidding_point", params);
     }
+
 
 }

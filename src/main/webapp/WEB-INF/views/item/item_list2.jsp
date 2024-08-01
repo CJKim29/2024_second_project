@@ -76,7 +76,6 @@
 	          ${ vo.option7 }
 	          ${ vo.option8 }
 	          ${ vo.option9 }
-	          ${ vo.option10 }
 	    </div>
 	    
        </c:forEach>

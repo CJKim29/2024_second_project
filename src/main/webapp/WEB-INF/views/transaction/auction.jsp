@@ -62,8 +62,9 @@
 	        }
 	    });
 	}//end:transaction()
-
+  // 변수 수정해야함!
 	function bidding_auction(reg_idx) {
+
         var bidding_point = document.getElementById("auction_point").value;
     
         if (bidding_point != null && bidding_point !== "") {
@@ -73,6 +74,32 @@
         }
     }//end:bidding_auction()
 	
+
+	    var bidding_point = document.getElementById("bidding_point").value;
+	
+	    if (bidding_point != null && bidding_point !== "") {
+	        window.location.href = 'bidding_auction.do?bidding_point=' + bidding_point + '&reg_idx=' + reg_idx;
+	    } else {
+	        alert("입찰할 금액을 입력하세요.");
+	    }
+	}//end:bidding_auction()
+		
+	function bidding_auction_button(buttonValue) {
+		
+		const bidding_point_button = buttonValue;
+		
+		$.ajax({
+			url		:	"bidding_auction_button.do",
+			data	:	{"bidding_point_button":bidding_point_button},
+			success	:	function(res_data){
+				
+				location.reload(); // 페이지를 새로고침
+			},
+			error	:	function(err){
+				alert(err.responseText)
+			}
+		});
+	}//end:bidding_auction()
 	
 	function charge() {
 	    const charge_point = $("#charge_point").val();
@@ -239,6 +266,7 @@
         <th style="padding-left:200px;" width="500px;">현재 입찰가</th>
     </tr>
     
+
        <tr>
            <td>
                <div class="item_image">
@@ -335,9 +363,8 @@
 			</td> 
        </tr>
 	</table>
-    </c:forEach>
-				<!-- 충전하실 금액 : <input id="charge_point" class="form-control">
-		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();"> -->
+</c:forEach>
+   
 </form>
 </div>
            			
