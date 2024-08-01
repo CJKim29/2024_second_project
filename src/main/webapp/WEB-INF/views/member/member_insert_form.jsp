@@ -20,6 +20,7 @@
 <!-- 주소 검색 API -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+
 <script type="text/javascript">
 
 	// 아이디 체크
@@ -60,24 +61,28 @@
 			}
 		});
 	} // end: check_id()
-	
-		// 닉네임 체크
-		function check_nickname(){
+</script>
+
+
+<script type="text/javascript">
+
+	// 닉네임 체크
+	function check_nickname(){
 		
 		$("#btn_register").prop("disabled", true);
 		
 		let mem_nickname = $("#mem_nickname").val();
-        let mem_nickname_check = /^[가-힣ㄱ-ㅎA-Za-z]{2,6}$/;
-        
-        if(mem_nickname.length==0) {
-            $("#nickname_msg").html("");
-            return;
-        }
-        
-        if(mem_nickname_check.test(mem_nickname)==false) {
-            $("#nickname_msg").html("닉네임은 2~6자리 영문 한글만 사용가능합니다.").css("color","IndianRed");
-            return;
-        }
+	    let mem_nickname_check = /^[가-힣ㄱ-ㅎA-Za-z]{2,6}$/;
+	    
+	    if(mem_nickname.length==0) {
+	        $("#nickname_msg").html("");
+	        return;
+	    }
+	    
+	    if(mem_nickname_check.test(mem_nickname)==false) {
+	        $("#nickname_msg").html("닉네임은 2~6자리 영문 한글만 사용가능합니다.").css("color","IndianRed");
+	        return;
+	    }
 		
 		$.ajax({
 			url		:	"check_nickname.do",
@@ -96,12 +101,15 @@
 			}
 		});
 	}// end:check_nickname()
-	
+</script>	
+
+
+<script type="text/javascript">
 	// 주소 찾기 -> API
 	function find_addr(){
 		
 		var themeObj = {
-				   bgColor: "#90CBFB" //바탕 배경색
+				   bgColor: "#05142f" //바탕 배경색
 		   };
 	
 		new daum.Postcode({
@@ -114,10 +122,11 @@
 	    }).open();
 		
 	}// end: find_addr()
+</script>
 	
 	
 	
-	
+<script type="text/javascript">	
 	// 입력했는지 확인
 	function send(f){
 		
@@ -168,12 +177,11 @@
 			return;
 		}
 
-        
 		f.action = "insert.do";
 		f.submit();		// 전송
 	}// end: send
-	
-</script>
+</script>	
+
 
 </head>
 
@@ -197,7 +205,7 @@
 		</div>
 		<div class="form-group">
 			<div class="text1">닉네임</div>
-			<input type="text" class="form-control" name="mem_nickname" id="nickname" placeholder="닉네임 입력" onkeyup="check_nickname();">
+			<input type="text" class="form-control" name="mem_nickname" id="mem_nickname" placeholder="닉네임 입력" onkeyup="check_nickname();">
 			<span id="nickname_msg"></span>
 		</div>
 		<div class="form-group">
