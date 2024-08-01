@@ -30,58 +30,8 @@
 <body>
 
 
+
 <div id="gong"><span>경매 현황</span></div>
-<div id="box">
-<form class="form-inline">
-	<input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">
-
-	<table class="table">
-			<tr style="background: #131319; height: 50px;">
-				<th style="padding-left: 100px;">아이템</th>
-				<th style="padding: 8px 0 8px 60px;">아이템명</th>
-				<th style="padding: 8px 0 8px 60px;">아이템옵션</th>
-				
-				<th style="padding-left: 230px;">거래정보</th>		
-			</tr>
-			
-			<c:forEach var="vo" items="${ list }">
-				<tr>
-					<td>
-						<div class="item_image">
-								<img src="../resources/images/${ vo.filename }">
-							</div>
-						</td>
-					<td>${ vo.reg_name }</td>
-					<td>
-						<div class="item_content1">
-							  <br>
-					          카테고리 : ${ vo.category }<br>
-					          ${ vo.grade }<br><br>
-					          ${ vo.intrinsic }<br>
-					          ${ vo.durability }<br>
-					          ${ vo.req_lev }<br>
-					          ${ vo.req_str }<br>
-					          ${ vo.req_dex }<br>
-					          <%-- <c:out value="${vo.intrinsic}" escapeXml="false" /><br> --%>
-					    </div>
-					    <div class="item_content2">
-					          ${ vo.option1 }<br>
-					          ${ vo.option2 }<br>
-					          ${ vo.option3 }<br>
-					          ${ vo.option4 }<br>
-					          ${ vo.option5 }<br>
-					          ${ vo.option6 }<br>
-					          ${ vo.option7 }<br>
-					          ${ vo.option8 }<br>
-					          ${ vo.option9 }<br>
-					          ${ vo.option10 }<br>
-					    </div>
-					</td>
-					
-					
-					<td>
-						<!-- 거래회원 정보 기입란 -->
-
 <div id="box">
 <form class="form-inline">
     <input type="hidden" name="mem_idx" value="<%= session.getAttribute("mem_idx") %>">
@@ -207,19 +157,14 @@
 			</c:forEach>
 		</table>
 
+</form>
+</div>    
 
-            </div>    
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
                     <!-- Page Menu -->
         <div style="text-align: center; margin-top: 30px; font-size:15px; ">
             ${ pageMenu }
         </div>
 
-</form>
-</div>
 
 </body>
 </html>

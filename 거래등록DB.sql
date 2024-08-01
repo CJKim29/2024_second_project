@@ -39,12 +39,16 @@
  		reg_mem_name	varchar2(200)		-- 판매등록자
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
  		option10		varchar2(200)		-- 옵션10
 
 
 >>>>>>> branch 'develop' of https://github.com/CJKim29/2024_second_project.git
+>>>>>>> branch 'JH/0' of https://github.com/CJKim29/2024_second_project.git
 	)
+ 		option10		varchar2(200)		-- 옵션10
 	
 	select * from reg_item
 
@@ -201,6 +205,8 @@
 	from
 		(select * from reg_item) r
 	where reg_idx=1   
+	
+	
 	
 	
 >>>>>>> branch 'develop' of https://github.com/CJKim29/2024_second_project.git

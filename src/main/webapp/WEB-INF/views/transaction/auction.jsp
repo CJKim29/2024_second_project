@@ -335,9 +335,9 @@
 			</td> 
        </tr>
 	</table>
-    </c:forEach>
-				<!-- 충전하실 금액 : <input id="charge_point" class="form-control">
-		       	<input type="button" class="btn btn-danger" value="충전" onclick="charge();"> -->
+
+</c:forEach>
+
 </form>
 </div>
            			

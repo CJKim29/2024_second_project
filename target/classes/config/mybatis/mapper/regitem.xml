@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- select : 반드시 resultType(포장타입) or resultMap 속성 정의 -->
 	<select id="reg_item_list"  resultType="regitem">
-		select * from reg_item
+		select
+			r.*,
+			(reg_date + reg_period) as end_date
+		from
+		(select * from reg_item) r
 	</select>
 	
 	<!-- paging 별 조회 -->
