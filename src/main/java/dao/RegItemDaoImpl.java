@@ -89,4 +89,7 @@ public class RegItemDaoImpl implements RegItemDao {
 		return sqlSession.selectList("regitem.regitem_list_search", map);
 	}
 
+	
+
+
 }

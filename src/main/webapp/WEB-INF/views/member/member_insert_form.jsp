@@ -101,7 +101,7 @@
 	function find_addr(){
 		
 		var themeObj = {
-				   bgColor: "#B51D1D" //바탕 배경색
+				   bgColor: "#90CBFB" //바탕 배경색
 		   };
 	
 		new daum.Postcode({

@@ -32,6 +32,13 @@
 </script>
 
 <script type="text/javascript">
+	
+	$(document).ready(function() {
+	    // 페이지가 로드될 때 category와 grade를 all로 설정하고 전체조건검색 함수 호출
+	    $("#category").val("all");
+	    $("#grade").val("all");
+	    search_all();
+	});
 
 	function search(){
 		
